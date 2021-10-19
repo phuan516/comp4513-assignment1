@@ -9,6 +9,7 @@ function App() {
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/default" exact component={DefaultPage} />
+      <Route path="/about" exact componet={AboutPage} />
     </main>
   );
 }

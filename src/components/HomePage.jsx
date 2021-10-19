@@ -1,7 +1,5 @@
 import React from "react";
 import SearchContainer from "./SearchContainer";
-//Add hero image
-//Add rectangle to the middle of the page that contains a search field, and 2 button.
 const HomePage = (props) => {
   return (
     <div>
