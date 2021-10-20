@@ -1,13 +1,16 @@
 import React from "react";
 import HeaderBar from "./HeaderBar";
+import FavoriteBox from "./FavoritesBox";
+import FilterBox from "./FilterBox";
+import ListBox from "./ListBox";
 
 const DefaultPage = (props) => {
   return (
     <div>
-      <HeaderBar></HeaderBar>
-      <div>add Favorite Box</div>
-      <div>add Play Filter</div>
-      <div>add List/Match</div>
+      <HeaderBar />
+      <FavoriteBox />
+      <FilterBox />
+      <ListBox />
     </div>
   );
 };

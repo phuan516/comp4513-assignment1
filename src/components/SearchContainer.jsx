@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 const SearchContainer = (props) => {
   return (
     <div>
-      <form>
-        <label for="title">Title</label>
-        <input type="text" id="title"></input>
-      </form>
+      <label for="title">Title</label>
+      <input type="text" id="title"></input>
+
       <Link to="/default">
         <button type="button">Show matching Plays</button>
       </Link>
