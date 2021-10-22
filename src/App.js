@@ -23,7 +23,7 @@ function App() {
     getData();
   }, []);
 
-  const updateLikes = (play) => {
+  const addLikes = (play) => {
     let temp = [...like];
     if (!temp.find((e) => e.title === play.title)) {
       temp.push(play);
@@ -33,12 +33,24 @@ function App() {
     }
   };
 
+  const removeLikes = (play) => {
+    const temp = [...like];
+    const index = temp.indexOf(play);
+    temp.splice(index, 1);
+    setLike(temp);
+  };
+
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/default">
-        <DefaultPage plays={data} likedPlays={like} addLike={updateLikes} />
+        <DefaultPage
+          plays={data}
+          likedPlays={like}
+          addToLike={addLikes}
+          removeFromLike={removeLikes}
+        />
       </Route>
       <Route path="/about" exact componet={AboutPage} />
     </main>

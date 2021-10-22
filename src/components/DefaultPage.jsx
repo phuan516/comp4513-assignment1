@@ -8,9 +8,12 @@ const DefaultPage = (props) => {
   return (
     <div>
       <HeaderBar />
-      <FavoriteBox plays={props.likedPlays} />
+      <FavoriteBox
+        plays={props.likedPlays}
+        removeFromLike={props.removeFromLike}
+      />
       <FilterBox />
-      <ListBox plays={props.plays} addLike={props.addLike} />
+      <ListBox plays={props.plays} addToLike={props.addToLike} />
     </div>
   );
 };

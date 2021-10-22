@@ -8,7 +8,7 @@ const ListBox = (props) => {
       <h3>Title</h3>
       <h3>List</h3>
       {props.plays.map((p) => (
-        <ListBoxItem play={p} addLike={props.addLike} />
+        <ListBoxItem play={p} addToLike={props.addToLike} />
       ))}
     </div>
   );
