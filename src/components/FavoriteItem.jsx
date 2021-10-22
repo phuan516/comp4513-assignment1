@@ -3,7 +3,7 @@ import React from "react";
 const FavoriteItem = (props) => {
   return (
     <div>
-      <p>Title: </p>
+      <p>Title: {props.play.title}</p>
       <button type="button">Del</button>
     </div>
   );

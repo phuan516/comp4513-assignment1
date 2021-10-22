@@ -7,9 +7,9 @@ const ListBox = (props) => {
       <h1>List / Match</h1>
       <h3>Title</h3>
       <h3>List</h3>
-      <ListBoxItem />
-      <ListBoxItem />
-      <ListBoxItem />
+      {props.plays.map((p) => (
+        <ListBoxItem play={p} addLike={props.addLike} />
+      ))}
     </div>
   );
 };

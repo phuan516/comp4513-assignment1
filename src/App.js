@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
+  const [like, setLike] = useState([]);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -14,7 +15,6 @@ function App() {
         const response = await fetch(url);
         const data = await response.json();
         setData(data);
-        console.log(data);
       } catch (err) {
         console.error(err);
       }
@@ -22,11 +22,24 @@ function App() {
     // invoke the async function
     getData();
   }, []);
+
+  const updateLikes = (play) => {
+    let temp = [...like];
+    if (!temp.find((e) => e.title === play.title)) {
+      temp.push(play);
+      setLike(temp);
+    } else {
+      console.log("already in list");
+    }
+  };
+
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
-      <Route path="/default" exact component={DefaultPage} />
+      <Route path="/default">
+        <DefaultPage plays={data} likedPlays={like} addLike={updateLikes} />
+      </Route>
       <Route path="/about" exact componet={AboutPage} />
     </main>
   );
