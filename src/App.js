@@ -1,6 +1,5 @@
 import HomePage from "./components/HomePage";
 import DefaultPage from "./components/DefaultPage";
-import AboutPage from "./components/AboutPage";
 import { Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
@@ -15,8 +14,7 @@ function App() {
           "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
         const response = await fetch(url);
         const data = await response.json();
-        localStorage.setItem("playData", data);
-        console.log(data);
+        localStorage.setItem("playData", JSON.stringify(data));
       } catch (err) {
         console.error(err);
       }
@@ -25,7 +23,7 @@ function App() {
     if (localStorage.getItem("playData") == null) {
       getData();
     } else {
-      setData(localStorage.getItem("playData"));
+      setData(JSON.parse(localStorage.getItem("playData")));
     }
   }, []);
 
@@ -58,7 +56,6 @@ function App() {
           removeFromLike={removeLikes}
         />
       </Route>
-      <Route path="/about" exact componet={AboutPage} />
     </main>
   );
 }

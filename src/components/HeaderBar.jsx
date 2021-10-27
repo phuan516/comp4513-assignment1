@@ -1,13 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Modal from "react-modal";
 
 const HeaderBar = (props) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div>
       <div>Logo</div>
-      <Link to="/about">
-        <button type="button">About</button>
-      </Link>
+
+      <button onClick={openModal} type="button">
+        About
+      </button>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <button onClick={closeModal}>close</button>
+        <div>Add about information here</div>
+      </Modal>
     </div>
   );
 };
