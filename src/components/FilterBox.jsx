@@ -18,11 +18,11 @@ const FilterBox = (props) => {
   }
 
  const handleSubmit = e => {
-    if (beforeCheckBox == false) {
+    if (beforeCheckBox == true) {
 
       filteredData[0].before = null;
     }
-    if (afterCheckBox == false) {
+    if (afterCheckBox == true) {
       filteredData[0].after = false;
     }
 
