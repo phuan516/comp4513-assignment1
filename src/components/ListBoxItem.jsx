@@ -8,6 +8,7 @@ const ListBoxItem = (props) => {
     <div>
       <p>{props.play.title}</p>
       <p>{props.play.likelyDate}</p>
+      <p>{props.play.genre}</p>
       <button type="button" onClick={add}>
         Like
       </button>

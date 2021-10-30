@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [like, setLike] = useState([]);
 
   useEffect(() => {
@@ -37,6 +38,183 @@ function App() {
     }
   };
 
+  const updateFilteredData = (filteredData) => {
+    filteredData[0].title = filteredData[0].title.toLowerCase();
+
+    let mainData = [...data];
+    let updatedFilteredData = [];
+    for (let d of mainData) {
+      if (
+        filteredData[0].title &&
+        filteredData[0].genre &&
+        filteredData[0].before &&
+        filteredData[0].after
+      ) {
+        if (
+          d.title.includes(filteredData[0].title) &&
+          d.genre == filteredData[0].genre &&
+          parseInt(d.likelyDate) < filteredData[0].before &&
+          parseInt(d.likelyDate) > filteredData[0].after
+        ) {
+          updatedFilteredData.push(d);
+        }
+      } else {
+        if (
+          filteredData[0].title &&
+          filteredData[0].genre &&
+          filteredData[0].before
+        ) {
+          if (
+            d.title.includes(filteredData[0].title) &&
+            d.genre == filteredData[0].genre &&
+            parseInt(d.likelyDate) < filteredData[0].before
+          ) {
+            updatedFilteredData.push(d);
+          }
+        } else {
+          if (
+            filteredData[0].title &&
+            filteredData[0].before &&
+            filteredData[0].after
+          ) {
+            if (
+              d.title.includes(filteredData[0].title) &&
+              parseInt(d.likelyDate) < filteredData[0].before &&
+              parseInt(d.likelyDate) > filteredData[0].after
+            ) {
+              updatedFilteredData.push(d);
+            }
+          } else {
+            if (
+              filteredData[0].title &&
+              filteredData[0].after &&
+              filteredData[0].genre
+            ) {
+              if (
+                d.title.includes(filteredData[0].title) &&
+                parseInt(d.likelyDate) > filteredData[0].after &&
+                d.genre == filteredData[0].genre
+              ) {
+                updatedFilteredData.push(d);
+              }
+            } else {
+              if (
+                filteredData[0].genre &&
+                filteredData[0].before &&
+                filteredData[0].after
+              ) {
+                if (
+                  d.genre == filteredData[0].genre &&
+                  parseInt(d.likelyDate) < filteredData[0].before &&
+                  parseInt(d.likelyDate) > filteredData[0].after
+                ) {
+                  updatedFilteredData.push(d);
+                }
+              } else {
+                if (filteredData[0].title && filteredData[0].genre) {
+                  if (
+                    d.title.includes(filteredData[0].title) &&
+                    d.genre == filteredData[0].genre
+                  ) {
+                    updatedFilteredData.push(d);
+                  }
+                } else {
+                  if (filteredData[0].title && filteredData[0].after) {
+                    if (
+                      d.title.includes(filteredData[0].title) &&
+                      parseInt(d.likelyDate) > filteredData[0].after
+                    ) {
+                      updatedFilteredData.push(d);
+                    }
+                  } else {
+                    if (filteredData[0].title && filteredData[0].before) {
+                      if (
+                        d.title.includes(filteredData[0].title) &&
+                        parseInt(d.likelyDate) < filteredData[0].before
+                      ) {
+                        updatedFilteredData.push(d);
+                      }
+                    } else {
+                      if (filteredData[0].genre && filteredData[0].before) {
+                        if (
+                          d.genre == filteredData[0].genre &&
+                          parseInt(d.likelyDate) < filteredData[0].before
+                        ) {
+                          updatedFilteredData.push(d);
+                        }
+                      } else {
+                        if (filteredData[0].genre && filteredData[0].after) {
+                          if (
+                            d.genre == filteredData[0].genre &&
+                            parseInt(d.likelyDate) > filteredData[0].after
+                          ) {
+                            updatedFilteredData.push(d);
+                          }
+                        } else {
+                          if (filteredData[0].before && filteredData[0].after) {
+                            if (
+                              parseInt(d.likelyDate) < filteredData[0].before &&
+                              parseInt(d.likelyDate) > filteredData[0].after
+                            ) {
+                              updatedFilteredData.push(d);
+                            }
+                          } else {
+                            if (filteredData[0].genre) {
+                              if (d.genre == filteredData[0].genre) {
+                                updatedFilteredData.push(d);
+                              }
+                            } else {
+                              if (filteredData[0].title) {
+                                if (d.title.includes(filteredData[0].title)) {
+                                  updatedFilteredData.push(d);
+                                }
+                              } else {
+                                if (filteredData[0].before) {
+                                  if (
+                                    parseInt(d.likelyDate) <
+                                    filteredData[0].before
+                                  ) {
+                                    updatedFilteredData.push(d);
+                                  }
+                                } else {
+                                  if (filteredData[0].after) {
+                                    if (
+                                      parseInt(d.likelyDate) >
+                                      filteredData[0].after
+                                    ) {
+                                      updatedFilteredData.push(d);
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //If the filtered data (play filter) is empty (i.e. user presses filter with no fields set), populate all data.
+
+    if (
+      !filteredData[0]["title"] &&
+      !filteredData[0]["before"] &&
+      !filteredData[0]["after"] &&
+      !filteredData[0]["genre"]
+    ) {
+      updatedFilteredData = mainData;
+    }
+
+    setFilteredData(updatedFilteredData);
+  };
+
   const removeLikes = (play) => {
     const temp = [...like];
     const index = temp.indexOf(play);
@@ -44,13 +222,16 @@ function App() {
     setLike(temp);
   };
 
+  //If filtered data s not yet set, assign regular data to it.
+
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/default">
         <DefaultPage
-          plays={data}
+          updateFilteredData={updateFilteredData}
+          plays={filteredData}
           likedPlays={like}
           addToLike={addLikes}
           removeFromLike={removeLikes}
