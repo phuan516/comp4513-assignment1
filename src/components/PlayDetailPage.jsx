@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import HeaderBar from "./HeaderBar";
 import FavoriteBox from "./FavoritesBox";
 import Tabs from "./TabComponent/Tabs.js";
@@ -6,7 +7,7 @@ import '../App.css';
 
 const PlayDetailPage = (props) => {
   const  [playInfo, setPlayInfo ] = useState();
-  const [tab, setTab] = useState("Details");
+  const [tab, setTab] = useState("");
   const [currentAct, setCurrentAct] = useState ("ACT I");
   const [currentScene, setCurrentScene] = useState("SCENE I");
   const [currentSpeaker, setCurrentSpeaker] = useState("");
@@ -17,30 +18,24 @@ const PlayDetailPage = (props) => {
   }
 
   const handleCurrentAct = (e) => {
-    console.log(e.target.value);
     setCurrentAct(e.target.value);
   }
 
   const handleCurrentScene = (e) => {
-    console.log(e.target.value);
     setCurrentScene(e.target.value);
   }
 
   const handleCurrentSpeaker = (e) => {
     if (e.target.value !== "" && e.target.value !== "clear") {
-      console.log(e.target.value);
       setCurrentSpeaker(e.target.value);
     } else if (e.target.value === "clear") {
       setCurrentSpeaker("");
-      console.log("Search is cleared -->" + e.target.value)
     }
   }
 
   const addToLike = () => {
     props.addToLike(props.current);
   };
-
-  console.log("current speaker is -->" + currentSpeaker)
 
   const handleHighlightedWord = (e) => {
     console.log(e.target.value);
@@ -49,14 +44,11 @@ const PlayDetailPage = (props) => {
 
     useEffect(() => {
       const getData = async () => {
-        try {
           const url = "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" + props.current.id;
           const response = await fetch(url);
           const data = await response.json();
           setPlayInfo(data);
-        } catch (err) {
-          console.error(err);
-        }
+        
       };
       // invoke the async function
       getData();
@@ -117,7 +109,9 @@ const PlayDetailPage = (props) => {
                 <input id="highlightedWord" type="text" name="name" onChange={handleHighlightedWord}/>
             </form>
             
-            <button> Close </button>
+            <Link to="/default">
+              <button type="button" > Close </button>
+            </Link>
             <button onClick={addToLike}> Like </button>
           </div>
     
@@ -148,7 +142,9 @@ const PlayDetailPage = (props) => {
             </div>
           </div>
 
-          <button> Close </button>
+          <Link to="/default">
+              <button type="button" > Close </button>
+          </Link>
           <button onClick={addToLike}> Like </button>
 
           <div className="tabsBox">

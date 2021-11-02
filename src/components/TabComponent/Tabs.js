@@ -7,28 +7,44 @@ const Tabs = (props) => {
     const [activeTab, setActiveTab] = useState("Details");
 
     /*
-    const onClickChange = (e) => {
-        var tab = e.target.innerHTML;
+    const onClickChange = (tab) => {
+        console.log(tab);
         setActiveTab(tab);
+        props.tabIsText(tab);
     }
     */
+
+    
+    const handleTextTab = () => {
+        setActiveTab("Text");
+        props.tabIsText("Text");
+        console.log(activeTab);
+    }
 
     const handleDetailsTab = () => {
         setActiveTab("Details");
         props.tabIsText("Details");
+        console.log(activeTab);
     }
 
     const handleCharactersTab = () => {
         setActiveTab("Characters");
         props.tabIsText("Characters");
+        console.log(activeTab);
     }
 
-    const handleTextTab = () => {
-        setActiveTab("Text");
-        props.tabIsText("Text");
-
+    function outlet () {
+        if (activeTab === "Details") {
+            <Details current={props.current}/>
+        } else if (activeTab === "Characters") {
+            <Characters current={props.current} playInfo={props.playInfo}/>
+        } else if (activeTab === "Text") {
+            <Text current={props.current} playInfo={props.playInfo} currentAct={props.currentAct}
+            currentScene={props.currentScene} currentSpeaker={props.currentSpeaker} highlightedWord={props.highlightedWord}/>
+        }
     }
     
+     console.log(activeTab);
 
     if (props.current.filename === "") {
         return (
@@ -51,9 +67,11 @@ const Tabs = (props) => {
                 </ul>
 
                 <div className="outlet">
-                    { activeTab === "Details" ? <Details current={props.current}/> : activeTab === "Characters" ? <Characters current={props.current} playInfo={props.playInfo}/> : 
-                    activeTab === "Text" ? <Text current={props.current} playInfo={props.playInfo} currentAct={props.currentAct}
-                    currentScene={props.currentScene} currentSpeaker={props.currentSpeaker} highlightedWord={props.highlightedWord}/> : "" }
+                    { activeTab === "Details" ? <Details current={props.current}/> :
+                    activeTab === "Characters" ? <Characters current={props.current} playInfo={props.playInfo}/>:
+                    <Text current={props.current} playInfo={props.playInfo} currentAct={props.currentAct}
+            currentScene={props.currentScene} currentSpeaker={props.currentSpeaker} highlightedWord={props.highlightedWord}/>
+                    }
                 </div>
             </div>
         );

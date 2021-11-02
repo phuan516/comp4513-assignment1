@@ -1,4 +1,5 @@
 import React from "react";
+import Highlighter from "react-highlight-words";
 
 const TextTab = (props) => {
 
@@ -20,7 +21,15 @@ const TextTab = (props) => {
                       s.speeches.map((speeches, index) => {
                         if (speeches.speaker === props.currentSpeaker) {
                           return (
-                            <p key={index}>{speeches.speaker} <br/> {speeches.lines} </p>
+                            /*
+                            <Highlighter
+                              highlightClassName="highLightedWords"
+                              searchWords={props.highlightedWord}
+                              autoEscape={true}
+                              textToHighlight= ""
+                            />,
+                            document.getElementById("root")*/
+                            <p key={index}>{speeches.speaker} <br/> {speeches.lines} </p> 
                           )
                         }
                       })
