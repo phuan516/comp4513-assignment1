@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SearchContainer = (props) => {
   return (
     <div>
-      <label for="title">Title</label>
+      <label htmlFor="title">Title</label>
       <input type="text" id="title"></input>
 
       <Link to="/default">

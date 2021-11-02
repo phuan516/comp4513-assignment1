@@ -12,8 +12,8 @@ const DefaultPage = (props) => {
         plays={props.likedPlays}
         removeFromLike={props.removeFromLike}
       />
-      <FilterBox  updateFilteredData = {props.updateFilteredData}/>
-      <ListBox plays={props.plays} addToLike={props.addToLike} allPlays = {props.allPlays} />
+      <FilterBox />
+      <ListBox plays={props.plays} addToLike={props.addToLike} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent}/>
     </div>
   );
 };

@@ -4,9 +4,9 @@ import FavoriteItem from "./FavoriteItem";
 const FavoriteBox = (props) => {
   return (
     <div>
-      <h1>Favorite</h1>
-      {props.plays.map((p) => (
-        <FavoriteItem play={p} removeFromLike={props.removeFromLike} />
+      <h1>Favorites</h1>
+      {props.plays.map((p, index) => (
+        <FavoriteItem play={p} removeFromLike={props.removeFromLike} key={index}/>
       ))}
     </div>
   );
