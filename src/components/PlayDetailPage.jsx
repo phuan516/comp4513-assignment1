@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import HeaderBar from "./HeaderBar";
 import FavoriteBox from "./FavoritesBox";
 import Tabs from "./TabComponent/Tabs.js";
@@ -7,7 +8,7 @@ import '../App.css';
 
 const PlayDetailPage = (props) => {
   const  [playInfo, setPlayInfo ] = useState();
-  const [tab, setTab] = useState("Details");
+  const [tab, setTab] = useState("");
   const [currentAct, setCurrentAct] = useState ("ACT I");
   const [currentScene, setCurrentScene] = useState("SCENE I");
   const [currentSpeaker, setCurrentSpeaker] = useState("");
@@ -18,22 +19,18 @@ const PlayDetailPage = (props) => {
   }
 
   const handleCurrentAct = (e) => {
-    console.log(e.target.value);
     setCurrentAct(e.target.value);
   }
 
   const handleCurrentScene = (e) => {
-    console.log(e.target.value);
     setCurrentScene(e.target.value);
   }
 
   const handleCurrentSpeaker = (e) => {
     if (e.target.value !== "" && e.target.value !== "clear") {
-      console.log(e.target.value);
       setCurrentSpeaker(e.target.value);
     } else if (e.target.value === "clear") {
       setCurrentSpeaker("");
-      console.log("Search is cleared -->" + e.target.value)
     }
   }
 
@@ -41,7 +38,10 @@ const PlayDetailPage = (props) => {
     props.addToLike(props.current);
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 54bbd8f6d344da9f50c33f561c0f9930be386789
   const handleHighlightedWord = (e) => {
     console.log(e.target.value);
     setHighlightedWord(e.target.value);
@@ -61,15 +61,18 @@ const PlayDetailPage = (props) => {
 */
     useEffect(() => {
       const getData = async () => {
-        try {
           const url = "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" + props.current.id;
           const response = await fetch(url);
           const data = await response.json();
           setPlayInfo(data);
+<<<<<<< HEAD
           
         } catch (err) {
           console.error(err);
         }
+=======
+        
+>>>>>>> 54bbd8f6d344da9f50c33f561c0f9930be386789
       };
       // invoke the async function
       getData();
@@ -107,6 +110,7 @@ const PlayDetailPage = (props) => {
                 </select> 
 
                   <br/>
+<<<<<<< HEAD
 
                 {/* This handles the scene filter corresponding to the act*/}
                 <select name="scene" id="scene" onChange={handleCurrentScene}>
@@ -147,6 +151,16 @@ const PlayDetailPage = (props) => {
               
             </div>
           
+=======
+                <input id="highlightedWord" type="text" name="name" onChange={handleHighlightedWord}/>
+            </form>
+            
+            <Link to="/default">
+              <button type="button" > Close </button>
+            </Link>
+            <button onClick={addToLike}> Like </button>
+          </div>
+>>>>>>> 54bbd8f6d344da9f50c33f561c0f9930be386789
     
 
             <div className="tabsBox">
@@ -166,6 +180,7 @@ const PlayDetailPage = (props) => {
             <HeaderBar></HeaderBar>
           </div>
 
+<<<<<<< HEAD
           <div className="playDetailsBox">
             <div className="detailsFavoriteList"> 
               <FavoriteBox
@@ -187,6 +202,12 @@ const PlayDetailPage = (props) => {
                 </Link>
                 <button onClick={addToLike}> Like </button>
               </div>
+=======
+          <Link to="/default">
+              <button type="button" > Close </button>
+          </Link>
+          <button onClick={addToLike}> Like </button>
+>>>>>>> 54bbd8f6d344da9f50c33f561c0f9930be386789
 
             </div>
           
