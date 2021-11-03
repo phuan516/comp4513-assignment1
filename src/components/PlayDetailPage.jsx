@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderBar from "./HeaderBar";
 import FavoriteBox from "./FavoritesBox";
 import Tabs from "./TabComponent/Tabs.js";
+import { Link } from "react-router-dom";
 import '../App.css';
 
 const PlayDetailPage = (props) => {
@@ -10,7 +11,7 @@ const PlayDetailPage = (props) => {
   const [currentAct, setCurrentAct] = useState ("ACT I");
   const [currentScene, setCurrentScene] = useState("SCENE I");
   const [currentSpeaker, setCurrentSpeaker] = useState("");
-  const [highlightedWord, setHighlightedWord] = useState();
+  const [highlightedWord, setHighlightedWord] = useState("");
 
   const tabIsText = (tab) => {
     setTab(tab);
@@ -40,13 +41,24 @@ const PlayDetailPage = (props) => {
     props.addToLike(props.current);
   };
 
-  console.log("current speaker is -->" + currentSpeaker)
 
   const handleHighlightedWord = (e) => {
     console.log(e.target.value);
     setHighlightedWord(e.target.value);
   }
 
+  /*
+  const check = () => {
+    if (currentSpeaker === "") {
+      console.log("Current speaker is empty string")
+    } else {
+      console.log("Current speaker isnt empty")
+    }
+  }
+
+  check();
+  
+*/
     useEffect(() => {
       const getData = async () => {
         try {
@@ -54,6 +66,7 @@ const PlayDetailPage = (props) => {
           const response = await fetch(url);
           const data = await response.json();
           setPlayInfo(data);
+          
         } catch (err) {
           console.error(err);
         }
@@ -66,65 +79,80 @@ const PlayDetailPage = (props) => {
     if (tab === "Text") {
       return (
         <div className="playDetailsPage">
+
+          <div className="detailsHeaderBar"> 
           <HeaderBar></HeaderBar>
-          <div className="detailsFavoriteList"> 
-            <FavoriteBox
-            plays={props.likedPlays}
-            removeFromLike={props.removeFromLike}/>
           </div>
-    
-          <div className="playTitleBox">
-            <h1>{props.current.title}</h1>
+          
+          <div className="playDetailsBox">
 
-            <form className="textFilterBox">
+            <div className="detailsFavoriteList"> 
+              <FavoriteBox
+              plays={props.likedPlays}
+              removeFromLike={props.removeFromLike}/>
+            </div>
+      
+            <div className="playTitleBox">
+              <h1 id="playTitle">{props.current.title}</h1>
+
+              <hr></hr>
               
-              {/* This handles the act filter and adds current act*/}
-              <select name="act" id="act" onChange={handleCurrentAct}>
-                {playInfo.acts.map( (a) => {
-                  return (<option value={a.name} key={a.name}> {a.name} </option>)
-                })}
-              </select> 
-
-                <br/>
-
-              {/* This handles the scene filter corresponding to the act*/}
-              <select name="scene" id="scene" onChange={handleCurrentScene}>
-                {playInfo.acts.map( (act) => {
-                  if (act.name === currentAct) {
-                    return(
-                      act.scenes.map((s) => {
-                        return (<option value={s.name} key={s.name}> {s.name} </option>)
-                      })
-                    )
-                  }
-                }   
-                )}
-              </select> 
-            </form>
+              <form className="textFilterBox">
                 
-                <br/>
-
-            <form className="playerSearch">
-                {/* This handles the word filter corresponding to the speaker*/}
-                <select name="speaker" id="speaker" onChange={handleCurrentSpeaker}>
-                  <option value=""> Choose Player Here </option>
-                  {playInfo.persona.map( (p) => {
-                    return (<option value={p.player} key={p.player}> {p.player} </option>)
+                {/* This handles the act filter and adds current act*/}
+                <select name="act" id="act" onChange={handleCurrentAct}>
+                  {playInfo.acts.map( (a) => {
+                    return (<option value={a.name} key={a.name}> {a.name} </option>)
                   })}
-                  <option value="clear" > CLEAR SEARCH </option>
-                </select>
+                </select> 
+
                   <br/>
-                <input id="highlightedWord" type="text" name="name" onChange={handleHighlightedWord}/>
-            </form>
-            
-            <button> Close </button>
-            <button onClick={addToLike}> Like </button>
-          </div>
+
+                {/* This handles the scene filter corresponding to the act*/}
+                <select name="scene" id="scene" onChange={handleCurrentScene}>
+                  {playInfo.acts.map( (act) => {
+                    if (act.name === currentAct) {
+                      return(
+                        act.scenes.map((s) => {
+                          return (<option value={s.name} key={s.name}> {s.name} </option>)
+                        })
+                      )
+                    }
+                  }   
+                  )}
+                </select> 
+              </form>
+                  
+                  <br/>
+
+              <form className="playerSearch">
+                  {/* This handles the word filter corresponding to the speaker*/}
+                  <select name="speaker" id="speaker" onChange={handleCurrentSpeaker}>
+                    <option value=""> Choose Player Here </option>
+                    {playInfo.persona.map( (p) => {
+                      return (<option value={p.player} key={p.player}> {p.player} </option>)
+                    })}
+                    <option value="clear" > CLEAR SEARCH </option>
+                  </select>
+                    <br/>
+                  <input id="highlightedWord" type="text" name="name" onChange={handleHighlightedWord}/>
+              </form>
+              
+              <div className="playDetailsButtons">
+                <Link to="/default">
+                  <button type="button"> Close </button>
+                </Link>
+                <button onClick={addToLike}> Like </button>
+              </div>
+              
+            </div>
+          
     
 
-          <div className="tabsBox">
-              <Tabs current={props.current} playInfo={playInfo} tabIsText={tabIsText} currentAct={currentAct}
-              currentScene={currentScene} currentSpeaker={currentSpeaker} highlightedWord={highlightedWord}/>
+            <div className="tabsBox">
+                <Tabs current={props.current} playInfo={playInfo} tab={tab} tabIsText={tabIsText} currentAct={currentAct}
+                currentScene={currentScene} currentSpeaker={currentSpeaker} highlightedWord={highlightedWord}/>
+            </div>
           </div>
 
         </div>
@@ -133,27 +161,41 @@ const PlayDetailPage = (props) => {
     } else {
       return (
         <div className="playDetailsPage">
-          <HeaderBar></HeaderBar>
-          <div className="detailsFavoriteList"> 
-            <FavoriteBox
-            plays={props.likedPlays}
-            removeFromLike={props.removeFromLike}
-          />
-            </div>
-    
-          <div className="playTitleBox">
-            <h1>{props.current.title}</h1>
-            <div className="synopsisBox">
-              {props.current.synopsis}
-            </div>
+
+          <div className="detailsHeaderBar"> 
+            <HeaderBar></HeaderBar>
           </div>
 
-          <button> Close </button>
-          <button onClick={addToLike}> Like </button>
+          <div className="playDetailsBox">
+            <div className="detailsFavoriteList"> 
+              <FavoriteBox
+              plays={props.likedPlays}
+              removeFromLike={props.removeFromLike}
+            />
+              </div>
+      
+            <div className="playTitleBox">
+              <h1 id="playTitle">{props.current.title}</h1>
+              <hr></hr>
+              <div className="synopsisBox">
+                {props.current.synopsis}
+              </div>
 
-          <div className="tabsBox">
-            <Tabs current={props.current} playInfo={playInfo} tabIsText={tabIsText} currentAct={currentAct}
-            currentScene={currentScene} currentSpeaker={currentSpeaker} highlightedWord={highlightedWord}/>
+              <div className="playDetailsButtons">
+                <Link to="/default">
+                  <button type="button"> Close </button>
+                </Link>
+                <button onClick={addToLike}> Like </button>
+              </div>
+
+            </div>
+          
+          
+
+            <div className="tabsBox">
+              <Tabs current={props.current} playInfo={playInfo} tab={tab} tabIsText={tabIsText} currentAct={currentAct}
+              currentScene={currentScene} currentSpeaker={currentSpeaker} highlightedWord={highlightedWord}/>
+            </div>
           </div>
     
     

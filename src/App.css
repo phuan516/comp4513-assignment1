@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -37,25 +38,13 @@
   }
 }
 
-/* Tabs CSS*/
-.Tabs {
-  width: 80%;
-  height: auto;
-  min-height: 400px;
-  background: #053742;
-  margin: 3.5rem auto 1.5rem;
-  padding: 2rem 1rem;
-  color: #E8F0F2;
-  border-radius: 2rem;
-  @media (max-width: 769px) {
-    padding: 2rem 0;
-  }
-}
+
+
 
   ul.nav {
-    width: 60%;
-    margin: 0 auto 2rem;
     display: flex;
+    margin-right: 3rem;
+    padding-bottom: 1.29rem;
     align-items: center;
     justify-content: space-between;
     /* border: 1px solid #39A2DB;
@@ -65,7 +54,7 @@
     }
   }
   ul.nav li {
-    width: 50%;
+    width: 100%;
     padding: 1rem;
     list-style: none;
     text-align: center;
@@ -100,3 +89,161 @@
   }
 */
 
+/* Tabs CSS*/
+.Tabs {
+  
+}
+
+.playDetailsPage {
+
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  
+  grid-template-rows: 1fr 8fr;
+  grid-row-gap: 1em;
+  background: rgba(50, 224, 196, 0.15); 
+  font-family: serif;
+  
+}
+
+.detailsHeaderBar {
+  border-style: solid;
+  border-color: red;  
+  grid-column: span 3;
+  grid-row: 1;
+
+}
+
+.playDetailsBox {
+  display: grid;
+  grid-column-gap: 1em;
+  grid-template-columns: 0.5fr 3.5fr 8fr;
+  
+
+}
+
+.detailsFavoriteList {
+  height: 50rem;
+  border-style: solid;
+  border-color: red;
+  grid-column: 1;
+
+}
+
+.playTitleBox {
+  height: 47rem;
+  width: 28rem;
+  background: #053742;
+  color: #E8F0F2;
+  border-style: solid;
+  border-color: red;
+  grid-column: 2;
+  padding: 1rem 2rem 2rem 1.5rem;
+
+}
+
+#playTitle {
+  font-size: 3rem;
+  
+}
+
+.synopsisBox {
+  padding-top: 1.5rem;
+  line-height: 2;
+}
+
+.tabsBox {
+  background: #053742;
+  padding: 2rem 1rem;
+  color: #ededed;
+  
+  height: 46rem;
+  width: 72rem;
+  border-style: solid;
+  border-color: red;
+  grid-column: 3;
+
+  @media (max-width: 769px) {
+    padding: 2rem 0;
+  }
+}
+
+.outlet {
+  padding-top: 0.01rem;
+  margin:4px, 4px;
+  padding:4px;
+  width: auto;
+  height: 40rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.allPlayers {
+  display: grid;
+  padding: 1rem 3rem 0rem 1rem;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+
+  
+}
+
+#act {
+  
+}
+
+.position {
+
+}
+
+.player {
+
+}
+
+.desc {
+
+}
+
+.DetailsTab {
+
+
+}
+
+
+.CharactersTab {
+
+
+}
+
+.TextTab {
+
+
+}
+
+.textFilterBox {
+  padding-top: 1.5rem;
+}
+
+.playDetailsButton {
+  
+}

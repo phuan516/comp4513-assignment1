@@ -2,12 +2,18 @@ import React from "react";
 
 const CharactersTab = (props) => {
     
-    const personas = props.playInfo.persona;
+  const personas = props.playInfo.persona;
 
   return (
     <div className="CharactersTab">
         {personas.map((p, index) => {
-          return <p key={index}> Character &emsp; {p.player} </p>
+          return (
+            <div className="allPlayers">
+              <p key={index} className="position">Position: {p.position}</p>
+              <p key={p.player} className="player"> {p.player} </p>
+              <p key={p.desc} className="desc"> {p.desc} </p>
+            </div>
+          )
         })}
       
     </div>
