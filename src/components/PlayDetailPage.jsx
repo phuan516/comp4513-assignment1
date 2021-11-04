@@ -100,30 +100,32 @@ const PlayDetailPage = (props) => {
               <form className="textFilterBox">
                 
                 {/* This handles the act filter and adds current act*/}
-                <select name="act" id="act" onChange={handleCurrentAct}>
-                  {playInfo.acts.map( (a) => {
-                    return (<option value={a.name} key={a.name}> {a.name} </option>)
-                  })}
-                </select> 
-
-                  <br/>
+          
+                  <select name="act" id="act" onChange={handleCurrentAct}>
+                    {playInfo.acts.map( (a) => {
+                      return (<option value={a.name} key={a.name}> {a.name} </option>)
+                    })}
+                  </select> 
+                
+                  
 
                 {/* This handles the scene filter corresponding to the act*/}
-                <select name="scene" id="scene" onChange={handleCurrentScene}>
-                  {playInfo.acts.map( (act) => {
-                    if (act.name === currentAct) {
-                      return(
-                        act.scenes.map((s) => {
-                          return (<option value={s.name} key={s.name}> {s.name} </option>)
-                        })
-                      )
-                    }
-                  }   
-                  )}
-                </select> 
+                  <select name="scene" id="scene" onChange={handleCurrentScene}>
+                    {playInfo.acts.map( (act) => {
+                      if (act.name === currentAct) {
+                        return(
+                          act.scenes.map((s) => {
+                            return (<option value={s.name} key={s.name}> {s.name} </option>)
+                          })
+                        )
+                      }
+                    }   
+                    )}
+                  </select> 
+                
               </form>
                   
-                  <br/>
+                  
 
               <form className="playerSearch">
                   {/* This handles the word filter corresponding to the speaker*/}

@@ -143,13 +143,17 @@
 
 }
 
+ hr {
+  padding-bottom: 1px;
+}
+
 #playTitle {
   font-size: 3rem;
   
 }
 
 .synopsisBox {
-  padding-top: 1.5rem;
+  padding-top: 1.8rem;
   line-height: 2;
 }
 
@@ -204,13 +208,51 @@
   display: grid;
   padding: 1rem 3rem 0rem 1rem;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
-
-  
 }
 
-#act {
-  
+/* https://www.w3schools.com/howto/howto_custom_select.asp */
+
+.textFilterBox {
+  margin-top: 0.8rem;
 }
+#actBox {
+  padding-bottom: 2rem;
+}
+
+.textFilterBox select {
+  border: 0;
+  width: 10rem;
+  font-weight:700;
+  padding: 0.4rem;
+  transition-duration: 3s;
+}
+
+.textFilterBox #act {
+  margin-right: 1rem;
+}
+
+.playerSearch {
+  margin-top: 2rem;
+}
+
+.playerSearch select {
+  border: 0;
+  width: 10rem;
+  font-weight:700;
+  padding: 0.4rem;
+}
+
+.playerSearch #highlightedWord {
+  margin-top: 1rem;
+}
+
+.playerSearch input {
+  width: 9rem;
+  padding: 0.4rem;
+  font-weight: 700;
+}
+
+
 
 .position {
 
