@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [like, setLike] = useState([]);
   const [currentPlay, setCurrentPlay] = useState([]);
   
@@ -17,13 +18,19 @@ function App() {
           "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
         const response = await fetch(url);
         const data = await response.json();
-        setData(data);
+        localStorage.setItem("playData", JSON.stringify(data));
       } catch (err) {
         console.error(err);
       }
     };
+
+    if (localStorage.getItem("playData") == null) {
+      getData();
+    } else {
+      setData(JSON.parse(localStorage.getItem("playData")));
+    }
+    
     // invoke the async function
-    getData();
   }, []);
 
   const addLikes = (play) => {
