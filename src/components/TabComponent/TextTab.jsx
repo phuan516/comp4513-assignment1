@@ -33,7 +33,6 @@ const TextTab = (props) => {
     if (props.highlightedWord == "") { */
     return (
       <div className="TextTab">
-        <p>{props.highlightedWord}</p>
         <h1>{props.playInfo.title}</h1>
         <h2> {props.currentAct}</h2>
         <h3> {props.currentScene}</h3>
