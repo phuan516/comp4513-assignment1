@@ -78,24 +78,24 @@ const PlayDetailPage = (props) => {
   if (tab === "Text") {
     return (
       <div className="playDetailsPage">
-        <div className="detailsHeaderBar">
+        <div id="detailsHeaderBar">
           <HeaderBar></HeaderBar>
         </div>
 
-        <div className="playDetailsBox">
-          <div className="detailsFavoriteList">
+        <div id="playDetailsBox">
+          <div id="detailsFavoriteList">
             <FavoriteBox
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
             />
           </div>
 
-          <div className="playTitleBox">
+          <div id="playTitleBox">
             <h1 id="playTitle">{props.current.title}</h1>
 
             <hr></hr>
-
-            <form className="textFilterBox">
+          <div id="formBox">
+            <form id="textFilterBox">
               {/* This handles the act filter and adds current act*/}
 
               <select name="act" id="act" onChange={handleCurrentAct}>
@@ -152,16 +152,17 @@ const PlayDetailPage = (props) => {
                 onChange={handleHighlightedWord}
               />
             </form>
-
-            <div className="playDetailsButtons">
+            </div>
+            <div id="textPlayDetailsButtons">
               <Link to="/default">
-                <button type="button"> Close </button>
+                <button type="button" id="closeButton"> Close </button>
               </Link>
               <button onClick={addToLike}> Like </button>
             </div>
+          
           </div>
 
-          <div className="tabsBox">
+          <div id="tabsBox">
             <Tabs
               current={props.current}
               playInfo={playInfo}
@@ -179,32 +180,34 @@ const PlayDetailPage = (props) => {
   } else {
     return (
       <div className="playDetailsPage">
-        <div className="detailsHeaderBar">
+        <div id="detailsHeaderBar">
           <HeaderBar></HeaderBar>
         </div>
 
-        <div className="playDetailsBox">
-          <div className="detailsFavoriteList">
+        <div id="playDetailsBox">
+          <div id="detailsFavoriteList">
             <FavoriteBox
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
             />
           </div>
 
-          <div className="playTitleBox">
+          <div id="playTitleBox">
             <h1 id="playTitle">{props.current.title}</h1>
             <hr></hr>
-            <div className="synopsisBox">{props.current.synopsis}</div>
+            <div id="playSummaryBox">
+              <div id="synopsisBox">{props.current.synopsis}</div>
 
-            <div className="playDetailsButtons">
-              <Link to="/default">
-                <button type="button"> Close </button>
-              </Link>
-              <button onClick={addToLike}> Like </button>
+              <div id="playDetailsButtons">
+                <Link to="/default">
+                  <button type="button" id="closeButton"> Close </button>
+                </Link>
+                <button onClick={addToLike}> Like </button>
+              </div>
             </div>
           </div>
 
-          <div className="tabsBox">
+          <div id="tabsBox">
             <Tabs
               current={props.current}
               playInfo={playInfo}

@@ -111,20 +111,20 @@ useEffect (() => {
           <H1>No Matches Found. Please Try Again! </H1> : ''
           }
     <h1>Play Filter</h1>
-    <label for="title">Title</label>
+    <label htmlFor="title">Title</label>
     <form onSubmit = {handleSubmit}>
     <input type="text" name="title" id="title" onChange = {handleFieldClick}></input>
     <input type="checkbox" name="before" onChange={handleCheckBoxClick} />
-    <label for="before" name="before">
+    <label htmlFor="before" name="before">
       Before
       <input type="text" name="before" disabled = {beforeCheck.status} onChange = {handleFieldClick}/>
     </label>
     <input type="checkbox"  name="after" onChange={handleCheckBoxClick}/>
-    <label for="after">
+    <label htmlFor="after">
       After
       <input type="text" name="after" disabled = {afterCheck.status} onChange = {handleFieldClick} />
     </label>
-    <label for="genre">Genre</label>
+    <label htmlFor="genre">Genre</label>
     <select name="genre" id="genre" onChange = {handleFieldClick}>
       <option  defaultValue = ''></option>
       <option name = "genre" value="comedy">comedy</option>

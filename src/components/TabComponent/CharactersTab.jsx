@@ -7,7 +7,7 @@ const CharactersTab = (props) => {
     <div className="CharactersTab">
       {personas.map((p, index) => {
         return (
-          <div className="allPlayers">
+          <div className="allPlayers" key={index}>
             <p key={index} className="position">
               Position: {p.position}
             </p>

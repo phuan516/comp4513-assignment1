@@ -38,9 +38,6 @@
   }
 }
 
-
-
-
   ul.nav {
     display: flex;
     margin-right: 3rem;
@@ -60,18 +57,9 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.7s;
-    /*
-    border-bottom-left-radius: 2rem;
-    border-top-left-radius: 2rem; */
   }
 
-  /*
-  ul.nav li:nth-child(2) {
-    border-radius: 0;
-    border-bottom-right-radius: 2rem;
-    border-top-right-radius: 2rem;
-  }
-  */
+
 
   ul.nav li:hover {
     background: rgba(50, 224, 196, 0.15);
@@ -80,108 +68,106 @@
     background: #39A2DB;
   }
 
-  /*
-  .DetailsTab p,
-  .CharactersTab p,
-  .TextTab p {
-    font-size: 2rem;
-  text-align: center;
-  }
-*/
-
-/* Tabs CSS*/
-.Tabs {
-  
-}
 
 .playDetailsPage {
-
-  height: 100vh;
-  width: 100%;
   display: grid;
-  
-  grid-template-rows: 1fr 8fr;
-  grid-row-gap: 1em;
-  background: rgba(50, 224, 196, 0.15); 
+  grid-template-rows: 0.5fr;
+  gap: 1rem;
   font-family: serif;
-  
-}
-
-.detailsHeaderBar {
-  border-style: solid;
-  border-color: red;  
-  grid-column: span 3;
-  grid-row: 1;
+  background: rgba(50, 224, 196, 0.15); 
+  height: 100vh;
 
 }
 
-.playDetailsBox {
+#headerBar{
+  grid-row: span 1;
+  border-style:solid;
+  border-color: lightblue;
+}
+
+#playDetailsBox {
   display: grid;
-  grid-column-gap: 1em;
-  grid-template-columns: 0.5fr 3.5fr 8fr;
+  padding-right: 20px;
+  width: auto;
+  height: 88vh;
+  grid-template-columns: 0.5fr 2fr 4fr;
+  gap: 1rem;
+  font-family: serif;
+
+
+  @media (max-width: 1200px) {
+  grid-template-columns: 0.5fr 2fr;
+  gap: 1rem;
+  }
+
+}
+
+#detailsFavoriteList {
   
-
-}
-
-.detailsFavoriteList {
-  height: 50rem;
-  border-style: solid;
-  border-color: red;
-  grid-column: 1;
-
-}
-
-.playTitleBox {
-  height: 47rem;
-  width: 28rem;
+  height: 88vh;
   background: #053742;
-  color: #E8F0F2;
-  border-style: solid;
-  border-color: red;
-  grid-column: 2;
-  padding: 1rem 2rem 2rem 1.5rem;
+  border-style:solid;
+  border-color: lightblue;
+  color: white;
 
+}
+
+#playTitleBox {
+  height: 88vh;
+  background: #053742;
+  border-style:solid;
+  border-color: lightblue;
+  color: white;
+  
 }
 
  hr {
-  padding-bottom: 1px;
+  padding: 0.4px;
+
 }
 
 #playTitle {
-  font-size: 3rem;
-  
+  text-align: center;
+  margin-bottom: 30px;
+  padding-left: 15px;
+  padding-bottom: 15px;
 }
 
-.synopsisBox {
-  padding-top: 1.8rem;
+#synopsisBox {
+  text-align: center;
   line-height: 2;
+  font-weight: 500;
+  padding: 35px 10px 10px 10px;
+
 }
 
-.tabsBox {
+#tabsBox {
   background: #053742;
-  padding: 2rem 1rem;
-  color: #ededed;
-  
-  height: 46rem;
-  width: 72rem;
-  border-style: solid;
-  border-color: red;
-  grid-column: 3;
-
-  @media (max-width: 769px) {
-    padding: 2rem 0;
-  }
+  border-style:solid;
+  border-color: lightblue;
+  color: white;
+  height: 88vh;
 }
 
 .outlet {
-  padding-top: 0.01rem;
-  margin:4px, 4px;
-  padding:4px;
+  margin:4px, 8px;
+  padding: 0px 15px 4px 15px;
   width: auto;
-  height: 40rem;
-  overflow-x: hidden;
-  overflow-y: auto;
   text-align:justify;
+  height: 68vh;
+  overflow-x: hidden;
+  overflow-y:auto;
+  
+}
+
+.allPlayers {
+  display: grid;
+  padding: 1rem 3rem 0rem 1rem;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+}
+
+#tabHR {
+  padding-bottom: 15px;
 }
 
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
@@ -204,38 +190,45 @@
   background: #555; 
 }
 
-.allPlayers {
-  display: grid;
-  padding: 1rem 3rem 0rem 1rem;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr;
-}
+
 
 /* https://www.w3schools.com/howto/howto_custom_select.asp */
 
-
-img[alt="Hero Image"] {
-  width:100%;
-  height: 100%;
-  position: relative;
-
+#homePage{
+  height:100%;
+  width: 100%;
+  background-color: lightcoral;
 }
 
-.textFilterBox {
+#homeSearch {
+  background-color: lightblue;
+}
+
+.SearchContainer {
+  background-color: lightblue;
+}
+
+#formBox {
+  margin-top: 25px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+#textFilterBox {
   margin-top: 0.8rem;
 }
 #actBox {
   padding-bottom: 2rem;
 }
 
-.textFilterBox select {
-  border: 0;
+#textFilterBox select {
   width: 10rem;
   font-weight:700;
   padding: 0.4rem;
-  transition-duration: 3s;
+  cursor: pointer;
 }
 
-.textFilterBox #act {
+#textFilterBox #act {
   margin-right: 1rem;
 }
 
@@ -244,10 +237,10 @@ img[alt="Hero Image"] {
 }
 
 .playerSearch select {
-  border: 0;
   width: 10rem;
   font-weight:700;
-  padding: 0.4rem;
+  padding: 0.3rem;
+  cursor: pointer;
 }
 
 .playerSearch #highlightedWord {
@@ -260,40 +253,62 @@ img[alt="Hero Image"] {
   font-weight: 700;
 }
 
-
-
-.position {
-
-}
-
-.player {
-
-}
-
-.desc {
-
-}
-
-.DetailsTab {
-
-
-}
-
-
-.CharactersTab {
-
-
-}
-
-.TextTab {
-
-
-}
-
 .textFilterBox {
   padding-top: 1.5rem;
 }
 
-.playDetailsButton {
+#playSummaryBox {
+}
+
+#playDetailsButtons {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top: 30vh;
+}
+
+#textPlayDetailsButtons {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top: 28.32vh;
+}
+
+#playDetailsButtons button,#textPlayDetailsButtons button {
+  color: white;
+  width: 8rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: #39A2DB;
+  border-radius: 0.5rem;
+}
+
+#closeButton {
+  margin-right: 1rem;
+}
+#playDetailsButtons button:hover ,#textPlayDetailsButtons button:hover {
+  background: rgba(50, 224, 196, 0.15);
+  transition: all 0.7s;
+}
+
+
+#speakerSpeeches {
+  padding-top: 20px;
+  padding-right: 10px;
   
+}
+
+#deleteButton {
+  align-content: center;
+  color: white;
+  width: 6rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: #39A2DB;
+  border-radius: 0.5rem;
+}
+
+#deleteButton:hover {
+  background: rgba(50, 224, 196, 0.15);
+  transition: all 0.7s;
 }

@@ -49,12 +49,13 @@ const TextTab = (props) => {
                           <Highlighter
                             searchWords={[props.highlightedWord]}
                             textToHighlight={String(speeches.speaker)}
-                          />
-                          <br />
+                          />:
+                          <br /> 
                           <Highlighter
                             searchWords={[props.highlightedWord]}
                             textToHighlight={String(speeches.lines)}
                           />
+                          <br /> <br />
                         </div>
                       );
                     }

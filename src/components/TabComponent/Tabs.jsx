@@ -53,7 +53,8 @@ const Tabs = (props) => {
             Text
           </li>
         </ul>
-        <hr></hr>
+        <div id="tabHR"> <hr></hr> </div>
+        
         <div className="outlet">
           {props.tab === "Details" ? (
             <DetailsTab current={props.current} />

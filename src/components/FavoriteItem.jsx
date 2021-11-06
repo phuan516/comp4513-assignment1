@@ -6,9 +6,9 @@ const FavoriteItem = (props) => {
   };
   return (
     <div>
-      <p>Title: {props.play.title}</p>
-      <button type="button" onClick={remove}>
-        Del
+      <p> {props.play.title}</p>
+      <button type="button" id="deleteButton" onClick={remove}>
+        Remove
       </button>
     </div>
   );

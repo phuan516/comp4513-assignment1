@@ -13,7 +13,7 @@ const HeaderBar = () => {
   };
 
   return (
-    <div>
+    <div id="headerBar">
       <div>Logo</div>
 
       <button onClick={openModal} type="button">

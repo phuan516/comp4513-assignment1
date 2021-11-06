@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+/*
 const DivStyled = styled.div`
 background-color:#B31E1E;
 border-radius: 10px;
@@ -36,6 +37,7 @@ const Input = styled.input`
 height: 20px;
 border-radius: 5px;
 `;
+*/
 
 const SearchContainer = (props) => {
   const handleInputChange = e => {
@@ -44,7 +46,24 @@ const SearchContainer = (props) => {
 
   const [title, updateTitle] = useState();
   return (
-    <DivStyled>
+    <div id="searchContainer">
+      <label htmlFor="title">Title</label>
+      <input type="text" id="title" onChange={handleInputChange}></input>
+    
+      <div id="homeButtons">
+      <Link to={{pathname:"/default", state: {title: title }}}>
+        <button type="button">Show matching Plays</button>
+      </Link>
+      <Link to={{pathname:"/default", state: {title: '' }}}>
+        <button type="button">Show All Plays</button>
+      </Link>
+      </div>
+    </div>
+  );
+};
+
+/*
+<DivStyled>
       <Label htmlFor="title">Title</Label>
       <Input type="text" id="title" onChange={handleInputChange}></Input>
     
@@ -56,7 +75,5 @@ const SearchContainer = (props) => {
         <Button type="button">Show All Plays</Button>
       </Link>
       </p>
-    </DivStyled>
-  );
-};
+    </DivStyled> */
 export default SearchContainer;
