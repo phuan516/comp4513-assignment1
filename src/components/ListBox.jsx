@@ -1,15 +1,41 @@
 import React from "react";
 import ListBoxItem from "./ListBoxItem";
+import styled from "styled-components";
+
+
+const H1 = styled.h1`
+
+  font-style:italic;
+  color: red;
+
+`;
 
 const ListBox = (props) => {
   return (
-    <div>
-      <h1>List / Match</h1>
-      <h3>Title</h3>
-      <h3>List</h3>
-      {props.plays.map((p, index) => (
-        <ListBoxItem play={p} addToLike={props.addToLike} updateCurrent={props.updateCurrent} key={index}/>
-      ))}
+    <div id="listBox">
+      <h1 id="listTitle">List / Match</h1>
+      <hr/>
+      
+      <div id="listPlayInfo">
+
+      
+
+        {props.matchesBoolean === true ? 
+        
+        <div>
+          <div id="listHeader"> 
+             <h2 id="titleLabel">Title</h2> <h2 id="listLabel">List</h2> <p></p>
+          </div>
+          
+          <div id="listPlayBox">
+          {props.plays.map((p, index) => ( 
+            <ListBoxItem play={p} addToLike={props.addToLike} updateCurrent={props.updateCurrent} key={index}/>
+            ))} 
+          </div> 
+        </div>
+          : <H1>No Matches Found. Please Try Again! </H1> }
+      
+      </div>
     </div>
   );
 };
