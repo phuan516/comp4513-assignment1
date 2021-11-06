@@ -53,192 +53,15 @@ function App() {
   const updateCurrentPlay = (clickedPlay) => {
     setCurrentPlay(clickedPlay);
   }
-
-  const updateFilteredData = (filteredData) => {
-    filteredData[0].title = filteredData[0].title.toLowerCase();
-
-    let mainData = [...JSON.parse(localStorage.getItem("playData"))];
-    //used to be let mainData = [...data];
-    let updatedFilteredData = [];
-    for (let d of mainData) {
-      if (
-        filteredData[0].title &&
-        filteredData[0].genre &&
-        filteredData[0].before &&
-        filteredData[0].after
-      ) {
-        if (
-          d.title.includes(filteredData[0].title) &&
-          d.genre == filteredData[0].genre &&
-          parseInt(d.likelyDate) < filteredData[0].before &&
-          parseInt(d.likelyDate) > filteredData[0].after
-        ) {
-          updatedFilteredData.push(d);
-        }
-      } else {
-        if (
-          filteredData[0].title &&
-          filteredData[0].genre &&
-          filteredData[0].before
-        ) {
-          if (
-            d.title.includes(filteredData[0].title) &&
-            d.genre == filteredData[0].genre &&
-            parseInt(d.likelyDate) < filteredData[0].before
-          ) {
-            updatedFilteredData.push(d);
-          }
-        } else {
-          if (
-            filteredData[0].title &&
-            filteredData[0].before &&
-            filteredData[0].after
-          ) {
-            if (
-              d.title.includes(filteredData[0].title) &&
-              parseInt(d.likelyDate) < filteredData[0].before &&
-              parseInt(d.likelyDate) > filteredData[0].after
-            ) {
-              updatedFilteredData.push(d);
-            }
-          } else {
-            if (
-              filteredData[0].title &&
-              filteredData[0].after &&
-              filteredData[0].genre
-            ) {
-              if (
-                d.title.includes(filteredData[0].title) &&
-                parseInt(d.likelyDate) > filteredData[0].after &&
-                d.genre == filteredData[0].genre
-              ) {
-                updatedFilteredData.push(d);
-              }
-            } else {
-              if (
-                filteredData[0].genre &&
-                filteredData[0].before &&
-                filteredData[0].after
-              ) {
-                if (
-                  d.genre == filteredData[0].genre &&
-                  parseInt(d.likelyDate) < filteredData[0].before &&
-                  parseInt(d.likelyDate) > filteredData[0].after
-                ) {
-                  updatedFilteredData.push(d);
-                }
-              } else {
-                if (filteredData[0].title && filteredData[0].genre) {
-                  if (
-                    d.title.includes(filteredData[0].title) &&
-                    d.genre == filteredData[0].genre
-                  ) {
-                    updatedFilteredData.push(d);
-                  }
-                } else {
-                  if (filteredData[0].title && filteredData[0].after) {
-                    if (
-                      d.title.includes(filteredData[0].title) &&
-                      parseInt(d.likelyDate) > filteredData[0].after
-                    ) {
-                      updatedFilteredData.push(d);
-                    }
-                  } else {
-                    if (filteredData[0].title && filteredData[0].before) {
-                      if (
-                        d.title.includes(filteredData[0].title) &&
-                        parseInt(d.likelyDate) < filteredData[0].before
-                      ) {
-                        updatedFilteredData.push(d);
-                      }
-                    } else {
-                      if (filteredData[0].genre && filteredData[0].before) {
-                        if (
-                          d.genre == filteredData[0].genre &&
-                          parseInt(d.likelyDate) < filteredData[0].before
-                        ) {
-                          updatedFilteredData.push(d);
-                        }
-                      } else {
-                        if (filteredData[0].genre && filteredData[0].after) {
-                          if (
-                            d.genre == filteredData[0].genre &&
-                            parseInt(d.likelyDate) > filteredData[0].after
-                          ) {
-                            updatedFilteredData.push(d);
-                          }
-                        } else {
-                          if (filteredData[0].before && filteredData[0].after) {
-                            if (
-                              parseInt(d.likelyDate) < filteredData[0].before &&
-                              parseInt(d.likelyDate) > filteredData[0].after
-                            ) {
-                              updatedFilteredData.push(d);
-                            }
-                          } else {
-                            if (filteredData[0].genre) {
-                              if (d.genre == filteredData[0].genre) {
-                                updatedFilteredData.push(d);
-                              }
-                            } else {
-                              if (filteredData[0].title) {
-                                if (d.title.includes(filteredData[0].title)) {
-                                  updatedFilteredData.push(d);
-                                }
-                              } else {
-                                if (filteredData[0].before) {
-                                  if (
-                                    parseInt(d.likelyDate) <
-                                    filteredData[0].before
-                                  ) {
-                                    updatedFilteredData.push(d);
-                                  }
-                                } else {
-                                  if (filteredData[0].after) {
-                                    if (
-                                      parseInt(d.likelyDate) >
-                                      filteredData[0].after
-                                    ) {
-                                      updatedFilteredData.push(d);
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    //If the filtered data (play filter) is empty (i.e. user presses filter with no fields set), populate all data.
-
-    if (
-      !filteredData[0]["title"] &&
-      !filteredData[0]["before"] &&
-      !filteredData[0]["after"] &&
-      !filteredData[0]["genre"]
-    ) {
-      updatedFilteredData = mainData;
-    }
-
-    setFilteredData(updatedFilteredData);
-  };
-
+  let mainData = [...JSON.parse(localStorage.getItem("playData"))];
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/default">
         <DefaultPage
-          updateFilteredData={updateFilteredData}
+          mainData={mainData}
+          setFilteredData={setFilteredData}
           plays={filteredData}
           likedPlays={like}
           addToLike={addLikes}
@@ -260,5 +83,4 @@ function App() {
     </main>
   );
 }
-
 export default App;

@@ -212,6 +212,14 @@
 
 /* https://www.w3schools.com/howto/howto_custom_select.asp */
 
+
+img[alt="Hero Image"] {
+  width:100%;
+  height: 100%;
+  position: relative;
+
+}
+
 .textFilterBox {
   margin-top: 0.8rem;
 }
