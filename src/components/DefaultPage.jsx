@@ -26,61 +26,63 @@ const DefaultPage = (props) => {
     if(filter.title) {
         filter.title = filter.title.toLowerCase();
     }
-      //Loop through main data, and contrast with each filter possibility, to render all possible matches.
-      //Checks if each "filter" state object property is set, and then it can verify whether it constains a match.
-      props.mainData.forEach(d => {
-        if (filter.title && filter.genre && filter.before && filter.after) {
-          if (d.title.includes(filter.title) && d.genre === filter.genre && parseInt(d.likelyDate) < filter.before && parseInt(d.likelyDate) > filter.after) {
+
+    //Loop through main data, and contrast with each filter possibility, to render all possible matches.
+    //Checks if each "filter" state object property is set, and then it can verify whether it constains a match.
+    props.mainData.forEach(d => {
+
+    if (filter.title && filter.genre && filter.before && filter.after) {
+        if (d.title.toLowerCase().includes(filter.title) && d.genre === filter.genre && d.likelyDate < filter.before && d.likelyDate > filter.after) {
             updatedFilteredData.push(d);
           }
         } else {
           if (filter.title && filter.genre && filter.before) {
-            if (d.title.includes(filter.title) && d.genre === filter.genre && parseInt(d.likelyDate) < filter.before) {
+            if (d.title.toLowerCase().includes(filter.title) && d.genre === filter.genre && d.likelyDate < filter.before) {
               updatedFilteredData.push(d);
             }
           } else {
             if (filter.title && filter.before && filter.after) {
-              if (d.title.includes(filter.title) && parseInt(d.likelyDate) < filter.before && parseInt(d.likelyDate) > filter.after) {
+              if (d.title.toLowerCase().includes(filter.title) && d.likelyDate < filter.before && d.likelyDate > filter.after) {
                 updatedFilteredData.push(d);
               }
             } else {
               if (filter.title && filter.after && filter.genre) {
-                if (d.title.includes(filter.title) && parseInt(d.likelyDate) > filter.after && d.genre === filter.genre) {
+                if (d.title.toLowerCase().includes(filter.title) && d.likelyDate > filter.after && d.genre === filter.genre) {
                   updatedFilteredData.push(d);
                 }
               } else {
                 if (filter.genre && filter.before && filter.after) {
-                  if (d.genre === filter.genre && parseInt(d.likelyDate) < filter.before && parseInt(d.likelyDate) > filter.after) {
+                  if (d.genre === filter.genre && d.likelyDate < filter.before && d.likelyDate > filter.after) {
                     updatedFilteredData.push(d);
                   }
                 } else {
                   if (filter.title && filter.genre) {
-                    if (d.title.includes(filter.title) && d.genre === filter.genre) {
+                    if (d.title.toLowerCase().includes(filter.title) && d.genre === filter.genre) {
                       updatedFilteredData.push(d);
                     }
                   } else {
                     if (filter.title && filter.after) {
-                      if (d.title.includes(filter.title) && parseInt(d.likelyDate) > filter.after) {
+                      if (d.title.toLowerCase().includes(filter.title) && d.likelyDate > filter.after) {
                         updatedFilteredData.push(d);
                       }
                     } else {
                       if (filter.title && filter.before) {
-                        if (d.title.includes(filter.title) && parseInt(d.likelyDate) < filter.before) {
+                        if (d.title.toLowerCase().includes(filter.title) && d.likelyDate < filter.before) {
                           updatedFilteredData.push(d);
                         }
                       } else {
                         if (filter.genre && filter.before) {
-                          if (d.genre === filter.genre && parseInt(d.likelyDate) < filter.before) {
+                          if (d.genre === filter.genre && d.likelyDate < filter.before) {
                               updatedFilteredData.push(d);
                           }
                         } else {
                           if (filter.genre && filter.after) {
-                            if (d.genre === filter.genre && parseInt(d.likelyDate) > filter.after) {
+                            if (d.genre === filter.genre && d.likelyDate > filter.after) {
                                 updatedFilteredData.push(d);
                             }
                           } else {
                             if (filter.before && filter.after) {
-                              if (parseInt(d.likelyDate) < filter.before && parseInt(d.likelyDate) > filter.after) {
+                              if (d.likelyDate < filter.before && d.likelyDate > filter.after) {
                                   updatedFilteredData.push(d);
                               }
                             } else {
@@ -90,17 +92,17 @@ const DefaultPage = (props) => {
                                 }
                               } else {
                                 if (filter.title) {
-                                  if (d.title.includes(filter.title)) {
+                                  if (d.title.toLowerCase().includes(filter.title)) {
                                       updatedFilteredData.push(d);
                                   }
                                 } else {
                                   if (filter.before) {                                  
-                                    if (parseInt(d.likelyDate) < filter.before) {
+                                    if (d.likelyDate < filter.before) {
                                         updatedFilteredData.push(d);
                                     }
                                   } else {
                                     if (filter.after) {
-                                      if (parseInt(d.likelyDate) > filter.after) {
+                                      if (d.likelyDate > filter.after) {
                                           updatedFilteredData.push(d);
                                       }
                                     }

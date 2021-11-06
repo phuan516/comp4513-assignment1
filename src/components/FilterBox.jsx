@@ -69,7 +69,7 @@ useEffect (() => {
  
     } else {
       if (e.target.name === 'after' &&  afterCheck.status === false) { 
-        setAfterCheck({status: true, value: afterCheck.after});
+        setAfterCheck({status: true, value: afterCheck.value});
         delete tempStateObj['after'];
     
     } else {
