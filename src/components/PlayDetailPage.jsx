@@ -67,14 +67,23 @@ const PlayDetailPage = (props) => {
         const response = await fetch(url);
         const data = await response.json();
         setPlayInfo(data);
+        //localStorage.setItem("playInfo", JSON.stringify(data));
       } catch (err) {
         console.error(err);
       }
     };
     // invoke the async function
     getData();
+
+    /*
+    if (localStorage.getItem("playInfo") == null) {
+      getData();
+    } else {
+      setPlayInfo(JSON.parse(localStorage.getItem("playInfo")));
+    } */
   }, []);
 
+  //let playInfoData = [...JSON.parse(localStorage.getItem("playData"))];
   if (tab === "Text") {
     return (
       <div className="playDetailsPage">
@@ -87,6 +96,7 @@ const PlayDetailPage = (props) => {
             <FavoriteBox
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
+              updateCurrent={props.updateCurrent}
             />
           </div>
 
@@ -157,7 +167,7 @@ const PlayDetailPage = (props) => {
               <Link to="/default">
                 <button type="button" id="closeButton"> Close </button>
               </Link>
-              <button onClick={addToLike}> Like </button>
+              <button onClick={addToLike} id="likeButton"> Like </button>
             </div>
           
           </div>
@@ -189,6 +199,7 @@ const PlayDetailPage = (props) => {
             <FavoriteBox
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
+              updateCurrent={props.updateCurrent}
             />
           </div>
 
@@ -202,7 +213,7 @@ const PlayDetailPage = (props) => {
                 <Link to="/default">
                   <button type="button" id="closeButton"> Close </button>
                 </Link>
-                <button onClick={addToLike}> Like </button>
+                <button onClick={addToLike} id="likeButton"> Like </button>
               </div>
             </div>
           </div>

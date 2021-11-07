@@ -18,7 +18,9 @@ function App() {
           "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
         const response = await fetch(url);
         const data = await response.json();
+
         localStorage.setItem("playData", JSON.stringify(data));
+        
       } catch (err) {
         console.error(err);
       }
@@ -53,7 +55,9 @@ function App() {
   const updateCurrentPlay = (clickedPlay) => {
     setCurrentPlay(clickedPlay);
   }
+
   let mainData = [...JSON.parse(localStorage.getItem("playData"))];
+
   return (
     <main>
       <Route path="/" exact component={HomePage} />
@@ -67,6 +71,7 @@ function App() {
           addToLike={addLikes}
           removeFromLike={removeLikes}
           updateCurrent={updateCurrentPlay}
+          current={currentPlay}
           
         />
       </Route>
@@ -78,6 +83,7 @@ function App() {
           addToLike={addLikes}
           removeFromLike={removeLikes}
           current={currentPlay}
+          updateCurrent={updateCurrentPlay}
         />
       </Route>
     </main>

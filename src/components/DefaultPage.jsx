@@ -144,6 +144,7 @@ const DefaultPage = (props) => {
           <FavoriteBox
             plays={props.likedPlays}
             removeFromLike={props.removeFromLike}
+            updateCurrent={props.updateCurrent}
           />
         </div>
         <FilterBox updateFilteredData={updateFilteredData} title = {title} matchesFound = {matchesFound}/>

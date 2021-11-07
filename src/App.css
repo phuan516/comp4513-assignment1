@@ -90,7 +90,7 @@
   padding-right: 20px;
   width: auto;
   height: 88vh;
-  grid-template-columns: 1fr 2fr 4fr;
+  grid-template-columns: 1fr 3fr 4fr;
   gap: 1rem;
   font-family: serif;
 
@@ -141,7 +141,8 @@
   text-align: center;
   line-height: 2;
   font-weight: 500;
-  padding: 35px 10px 10px 10px;
+  padding: 35px 40px 10px 40px;
+  font-size: 1.5vh;
 
 }
 
@@ -270,6 +271,7 @@
   background: rgba(50, 224, 196, 0.15);
   transition: all 0.7s;
   color: rgb(211, 211, 211);
+  font-size: 1.1vh;
 }
 
 #matchingButton {
@@ -355,21 +357,18 @@ a:visited {
   padding-top: 1.5rem;
 }
 
-#playSummaryBox {
-}
-
 #playDetailsButtons {
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top: 30vh;
+  margin-top: 51vh;
 }
 
 #textPlayDetailsButtons {
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top: 28.32vh;
+  margin-top: 45vh;
 }
 
 #playDetailsButtons button,#textPlayDetailsButtons button {
@@ -384,6 +383,11 @@ a:visited {
 #closeButton {
   margin-right: 1rem;
 }
+
+#likeButton {
+  font-size: 1.4vh;
+}
+
 #playDetailsButtons button:hover ,#textPlayDetailsButtons button:hover {
   background: rgba(50, 224, 196, 0.15);
   transition: all 0.7s;
@@ -440,8 +444,13 @@ a:visited {
   color: white;
   text-align: center;
   border-radius: 10px;
+  
+}
+
+#favoritesList {
   overflow-x: hidden;
   overflow-y:auto;
+  height: 75vh;
 }
 
 #filterBox {
@@ -497,7 +506,6 @@ a:visited {
 }
 
 #playDate {
-  
   grid-column: 3;
 }
 
@@ -529,5 +537,143 @@ a:visited {
   color: rgb(211, 211, 211);
 }
 
+#filterContentBox {
+  padding: 2em;
+}
 
+#searchTitleBox label{
+  font-weight: 600;
+  font-size: 2.5vh;
+}
 
+#searchTitleBox input{
+  padding: 0.8vh;
+}
+
+#searchTitleInput {
+  margin-top: 1vh;
+}
+
+#searchYearBox {
+  padding-top: 3vh;
+}
+
+#yearTitle {
+  font-weight: 600;
+  font-size: 2.5vh;
+
+}
+
+#beforeCheckBox {
+  display: inline-block;
+}
+
+/* https://stackoverflow.com/questions/4137255/checkboxes-in-web-pages-how-to-make-them-bigger */
+
+input[type='checkbox'] {
+  -webkit-appearance:none;
+    width: 2vh;
+    height:2vh;
+    background:white;
+    border-radius:50em;
+    border:2px solid #555;
+    cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+  background: #adf;
+}
+
+#beforeSearch {
+  margin-top: 1vh;
+}
+
+#labelBefore {
+  padding-left: 4vh;
+  font-weight: 600;
+  font-size: 2vh;
+}
+
+#inputBefore {
+  margin-left: 4vh;
+  padding: 0.8vh;
+}
+
+#afterSearch {
+  margin-top: 1vh;
+}
+
+#labelAfter {
+  padding-left: 4vh;
+  font-weight: 600;
+  font-size: 2vh;
+}
+
+#inputAfter {
+  margin-left: 5vh;
+  padding: 0.8vh;
+}
+
+#genreBox {
+  margin-top: 3vh;
+}
+
+#genreBox label {
+  font-weight: 600;
+  font-size: 2.5vh;
+}
+
+#genre {
+  margin-top: 1vh;
+  padding: 0.8vh;
+  width: 30vh;
+  
+}
+
+#genre option {
+  font-weight: 600;
+}
+
+#filterButtons {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top: 28.32vh;
+}
+
+#filterButtons button {
+  color: white;
+  width: 8rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: #39A2DB;
+  border-radius: 0.5rem;
+}
+
+#filterButton {
+  margin-right: 1rem;
+  font-size: 1.4vh;
+}
+
+#clearButton {
+  font-size: 1.4vh;
+}
+
+#filterButton:hover {
+  background: rgba(50, 224, 196, 0.15);
+  padding: 0.45rem;
+  transition: all 1s;
+  font-size: 1.2vh;
+}
+
+#clearButton:hover {
+  background: rgba(50, 224, 196, 0.15);
+  padding: 0.45rem;
+  transition: all 1s;
+  font-size: 1.2vh;
+}
+
+#favoriteItem {
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}

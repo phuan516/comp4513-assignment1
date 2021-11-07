@@ -98,31 +98,61 @@ useEffect (() => {
 
     return (
     <div id="filterBox">
-      <h1 id="filterTitle">Play Filter</h1>
+      <h1 id="filterTitle">Play Filters</h1>
       <hr/>
-      <label htmlFor="title">Title</label>
-      <form onSubmit = {handleSubmit}>
-      <input type="text" name="title" id="title" onChange = {handleFieldClick}></input>
-      <input type="checkbox" name="before" onChange={handleCheckBoxClick} />
-      <label htmlFor="before" name="before">
-        Before
-        <input type="text" name="before" disabled = {beforeCheck.status} onChange = {handleFieldClick}/>
-      </label>
-      <input type="checkbox"  name="after" onChange={handleCheckBoxClick}/>
-      <label htmlFor="after">
-        After
-        <input type="text" name="after" disabled = {afterCheck.status} onChange = {handleFieldClick} />
-      </label>
-      <label htmlFor="genre">Genre</label>
-      <select name="genre" id="genre" onChange = {handleFieldClick}>
-        <option  defaultValue = ''></option>
-        <option name = "genre" value="comedy">comedy</option>
-        <option name = "genre" value="tragedy">tragedy</option>
-        <option name = "genre" value="history">history</option>
-      </select>
-      <button type="submit">Filter</button>
-      <button type="reset" onClick={resetFilter}>Clear</button>
-      </form>
+      <div id="filterContentBox">
+
+        
+        <form onSubmit = {handleSubmit}>
+          <div id="searchTitleBox">
+            <label htmlFor="title">Title</label>
+            <br/>
+            <input type="text" name="title" id="searchTitleInput" onChange = {handleFieldClick}></input>
+          </div>
+          <div id="searchYearBox">
+            <label htmlFor="year" id="yearTitle"> Year </label> <br />
+
+            <div id="beforeSearch">
+              <div id="beforeCheckBox">
+                <input type="checkbox" name="before" onChange={handleCheckBoxClick} />
+              </div>
+              <label htmlFor="before" name="before" id="labelBefore">
+                Before
+                <input type="text" name="before" id="inputBefore" disabled = {beforeCheck.status} onChange = {handleFieldClick}/>
+              </label>
+            </div>
+
+            <br/>
+
+            <div id="afterSearch"> 
+              <div id="afterCheckBox">
+                <input type="checkbox"  name="after" onChange={handleCheckBoxClick}/> 
+                <label htmlFor="after" name="after" id="labelAfter"> 
+                  After
+                  <input type="text" name="after" id="inputAfter" disabled = {afterCheck.status} onChange = {handleFieldClick} />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div id="genreBox">
+            <label htmlFor="genre">Genre</label>
+            <br/>
+            <select name="genre" id="genre" onChange = {handleFieldClick}>
+              <option  defaultValue = ''></option>
+              <option name = "genre" value="comedy">comedy</option>
+              <option name = "genre" value="tragedy">tragedy</option>
+              <option name = "genre" value="history">history</option>
+            </select>
+          </div>
+
+          <div id="filterButtons">
+            <button type="submit" id="filterButton"> Filter </button>
+            <button type="reset" id="clearButton" onClick={resetFilter}> Clear </button>
+          </div>
+
+        </form>
+      </div>
   </div>
     
     );
