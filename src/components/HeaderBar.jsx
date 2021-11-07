@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
 const HeaderBar = () => {
@@ -14,7 +14,11 @@ const HeaderBar = () => {
 
   return (
     <div id="headerBar">
-      <div>Logo</div>
+      <div>
+        <Link to="/">
+          <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
+        </Link>
+      </div>
 
       <button onClick={openModal} type="button">
         About
