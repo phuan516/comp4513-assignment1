@@ -52,7 +52,7 @@ function App() {
   const updateCurrentPlay = (clickedPlay) => {
     setCurrentPlay(clickedPlay);
   };
-  let mainData = [...JSON.parse(localStorage.getItem("playData"))];
+  let mainData = [JSON.parse(localStorage.getItem("playData"))];
   return (
     <main>
       <Route path="/" exact component={HomePage} />
@@ -75,7 +75,7 @@ function App() {
           addToLike={addLikes}
           removeFromLike={removeLikes}
           current={currentPlay}
-          filters = {filteredData}
+          filters={filteredData}
         />
       </Route>
     </main>
