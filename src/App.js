@@ -56,7 +56,7 @@ function App() {
   };
 
   let mainData = [JSON.parse(localStorage.getItem("playData"))];
-
+  
   return (
     <main>
       <Route path="/" exact component={HomePage} />
