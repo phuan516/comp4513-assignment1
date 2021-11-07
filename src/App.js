@@ -1,6 +1,5 @@
 import HomePage from "./components/HomePage";
 import DefaultPage from "./components/DefaultPage";
-import AboutPage from "./components/AboutPage";
 import PlayDetailPage from "./components/PlayDetailPage";
 import { Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
@@ -10,7 +9,7 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [like, setLike] = useState([]);
   const [currentPlay, setCurrentPlay] = useState([]);
-  
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -31,7 +30,7 @@ function App() {
     } else {
       setData(JSON.parse(localStorage.getItem("playData")));
     }
-    
+
     // invoke the async function
   }, []);
 
@@ -54,9 +53,9 @@ function App() {
 
   const updateCurrentPlay = (clickedPlay) => {
     setCurrentPlay(clickedPlay);
-  }
+  };
 
-  let mainData = [...JSON.parse(localStorage.getItem("playData"))];
+  let mainData = [JSON.parse(localStorage.getItem("playData"))];
 
   return (
     <main>
@@ -75,15 +74,15 @@ function App() {
           
         />
       </Route>
-      <Route path="/about" exact component={AboutPage} />
       <Route path="/playDetails">
-        <PlayDetailPage 
+        <PlayDetailPage
           plays={data}
           likedPlays={like}
           addToLike={addLikes}
           removeFromLike={removeLikes}
           current={currentPlay}
           updateCurrent={updateCurrentPlay}
+          filters = {filteredData}
         />
       </Route>
     </main>

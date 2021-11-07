@@ -3,16 +3,32 @@ import HeaderBar from "./HeaderBar";
 import FavoriteBox from "./FavoritesBox";
 import FilterBox from "./FilterBox";
 import ListBox from "./ListBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
 
 const DefaultPage = (props) => {
+  const location = useLocation();
+  
+  useEffect (() => {
+   
+    if (location.state.filters) {
+      props.setFilteredData(location.state.filters);
+
+    } 
+
+
+  }, []
+  );
+  
+
+  let title = '';
+  if (location.state.title) {
+    title = location.state.title;
+  }
 
   //check if matches are found from filter.
   const [matchesFound, setMatchesFound] = useState(true);
-  const location = useLocation();
-  const {title} = location.state;
   const updateFilteredData = (filter) => {   
   let updatedFilteredData = [];
   
