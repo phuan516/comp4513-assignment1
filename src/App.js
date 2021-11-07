@@ -19,7 +19,6 @@ function App() {
         const data = await response.json();
 
         localStorage.setItem("playData", JSON.stringify(data));
-        
       } catch (err) {
         console.error(err);
       }
@@ -55,15 +54,13 @@ function App() {
     setCurrentPlay(clickedPlay);
   };
 
-  let mainData = [JSON.parse(localStorage.getItem("playData"))];
-  
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/default">
         <DefaultPage
-          mainData={mainData}
+          mainData={data}
           setFilteredData={setFilteredData}
           plays={filteredData}
           likedPlays={like}
@@ -71,7 +68,6 @@ function App() {
           removeFromLike={removeLikes}
           updateCurrent={updateCurrentPlay}
           current={currentPlay}
-          
         />
       </Route>
       <Route path="/playDetails">
@@ -82,7 +78,7 @@ function App() {
           removeFromLike={removeLikes}
           current={currentPlay}
           updateCurrent={updateCurrentPlay}
-          filters = {filteredData}
+          filters={filteredData}
         />
       </Route>
     </main>
