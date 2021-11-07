@@ -25,10 +25,18 @@ const ListBox = (props) => {
         {props.matchesBoolean === true ? (
           <div>
             <div id="listHeader">
-              <h2 id="titleLabel" onClick={sortByTitle}>
+              <h2
+                id="titleLabel"
+                style={{ cursor: "pointer" }}
+                onClick={sortByTitle}
+              >
                 Title
               </h2>{" "}
-              <h2 id="listLabel" onClick={sortByYear}>
+              <h2
+                id="listLabel"
+                style={{ cursor: "pointer" }}
+                onClick={sortByYear}
+              >
                 Year
               </h2>{" "}
               <p></p>
