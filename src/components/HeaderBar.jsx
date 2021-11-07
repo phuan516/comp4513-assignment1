@@ -25,7 +25,17 @@ const HeaderBar = () => {
       </button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <button onClick={closeModal}>close</button>
-        <div>Add about information here</div>
+        <div>
+          <h1>About</h1>
+          <h3>Team Members</h3>
+          <p>Anro Tran</p>
+          <p>Peter Huang</p>
+          <p>Mohamed Aly</p>
+          <h3>Github Repo</h3>
+          <a href="https://github.com/phuan516/comp4513-assignment1">
+            <p style={{ color: "black" }}>Link to Repository</p>
+          </a>
+        </div>
       </Modal>
     </div>
   );
