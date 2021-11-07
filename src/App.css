@@ -125,16 +125,23 @@
   
 }
 
- hr {
-  padding: 0.4px;
-
+#checkAndTitle {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
 }
-
 #playTitle {
+  text-align: center;
+  grid-column: 2;
+  /*
   text-align: center;
   margin-bottom: 30px;
   padding-left: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 15px; */
+}
+
+ hr {
+  padding: 0.4px;
+
 }
 
 #synopsisBox {
@@ -380,8 +387,13 @@ a:visited {
   border-radius: 0.5rem;
 }
 
+#playDetailsButtons #likeButton{
+  color: red;
+}
+
 #closeButton {
   margin-right: 1rem;
+  color:white;
 }
 
 #likeButton {
@@ -461,8 +473,38 @@ a:visited {
   border-radius: 10px;
 }
 
+#filtersAndCheck {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  
+}
+
+
+#checkBoxDiv {
+
+  grid-column: 1;
+  align-self: center;
+  padding-left: 2vh;
+}
+
+#checkBoxDiv [type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  cursor: pointer;
+}
+
+#checkBoxDiv [type='checkbox']:checked {
+  visibility: visible;
+  opacity: 1;
+  
+  transition: all 0.7s;
+}
+
 #filterTitle {
   text-align: center;
+  grid-column: 2;
+
 }
 
 #listBox {
@@ -530,6 +572,9 @@ a:visited {
   background: #39A2DB;
   border-radius: 0.5rem;
 }
+#playListButtons #likeButton {
+  color:red;
+}
 
 #playListButtons button:hover {
   background: rgba(50, 224, 195, 0.445);
@@ -570,7 +615,7 @@ a:visited {
 
 /* https://stackoverflow.com/questions/4137255/checkboxes-in-web-pages-how-to-make-them-bigger */
 
-input[type='checkbox'] {
+#beforeCheckBox input[type='checkbox'], #afterCheckBox input[type='checkbox']{
   -webkit-appearance:none;
     width: 2vh;
     height:2vh;
@@ -580,7 +625,7 @@ input[type='checkbox'] {
     cursor: pointer;
 }
 
-input[type='checkbox']:checked {
+#beforeCheckBox input[type='checkbox']:checked, #afterCheckBox input[type='checkbox']:checked {
   background: #adf;
 }
 
@@ -676,4 +721,22 @@ input[type='checkbox']:checked {
 #favoriteItem {
   margin-top: 2vh;
   margin-bottom: 3vh;
+}
+
+button.link {
+  background: none;
+  border: none;
+  color:white;
+  cursor: pointer;
+  margin-bottom: 2vh;
+}
+
+#loader {
+  /*background-image: url("./loadingGif/simpson.gif");*/
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

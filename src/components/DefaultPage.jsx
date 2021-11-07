@@ -148,26 +148,30 @@ const DefaultPage = (props) => {
 
       props.setFilteredData(updatedFilteredData);
     };
-  
-  
-    
 
-  return (
-    <div id="defaultPage">
-      <HeaderBar />
-      <div id="defaultPageInfoBox">
-        <div id="defaultFavoriteBox">
-          <FavoriteBox
-            plays={props.likedPlays}
-            removeFromLike={props.removeFromLike}
-            updateCurrent={props.updateCurrent}
-          />
-        </div>
-        <FilterBox updateFilteredData={updateFilteredData} title = {title} matchesFound = {matchesFound}/>
-        <ListBox plays={props.plays} addToLike={props.addToLike} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent} matchesBoolean={matchesFound}/>
-      </div>
-    </div>
-  );
+    //https://stackoverflow.com/questions/60904128/how-to-use-settimeout-with-a-loader
+  
+
+        return (
+          <div id="defaultPage">
+            <HeaderBar />
+            <div id="defaultPageInfoBox">
+              <div id="defaultFavoriteBox">
+                <FavoriteBox
+                  plays={props.likedPlays}
+                  removeFromLike={props.removeFromLike}
+                  updateCurrent={props.updateCurrent}
+                  updatePlayInfo={props.updatePlayInfo}
+      
+                />
+              </div>
+              <FilterBox updateFilteredData={updateFilteredData} title = {title} matchesFound = {matchesFound}/>
+              <ListBox plays={props.plays} addToLike={props.addToLike} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent} matchesBoolean={matchesFound}/>
+            </div>
+          </div>
+        );
+      
+  
 };
 
 export default DefaultPage;

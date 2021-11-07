@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
+  const [playInfo, setPlayInfo] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [like, setLike] = useState([]);
   const [currentPlay, setCurrentPlay] = useState([]);
@@ -53,9 +54,19 @@ function App() {
 
   const updateCurrentPlay = (clickedPlay) => {
     setCurrentPlay(clickedPlay);
+    
   };
 
-  let mainData = [JSON.parse(localStorage.getItem("playData"))];
+  const updatePlayInfo = (play) => {
+    console.log(play);
+    
+    //setPlayInfo(data);
+
+    setPlayInfo(play);
+  }
+
+
+  
   
   return (
     <main>
@@ -63,7 +74,7 @@ function App() {
       <Route path="/home" exact component={HomePage} />
       <Route path="/default">
         <DefaultPage
-          mainData={mainData}
+          mainData={data}
           setFilteredData={setFilteredData}
           plays={filteredData}
           likedPlays={like}
@@ -71,7 +82,9 @@ function App() {
           removeFromLike={removeLikes}
           updateCurrent={updateCurrentPlay}
           current={currentPlay}
-          
+
+          playInfo={playInfo}
+          updatePlayInfo={updatePlayInfo}
         />
       </Route>
       <Route path="/playDetails">
@@ -82,7 +95,11 @@ function App() {
           removeFromLike={removeLikes}
           current={currentPlay}
           updateCurrent={updateCurrentPlay}
-          filters = {filteredData}
+          filters={filteredData}
+
+          playInfo={playInfo}
+          updatePlayInfo={updatePlayInfo}
+
         />
       </Route>
     </main>

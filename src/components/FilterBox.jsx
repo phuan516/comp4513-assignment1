@@ -98,10 +98,12 @@ useEffect (() => {
 
     return (
     <div id="filterBox">
-      <h1 id="filterTitle">Play Filters</h1>
+      <div id="filtersAndCheck">
+        <div id="checkBoxDiv"> <input type="checkbox" class="checkboxFave" /> </div>
+        <h1 id="filterTitle">Play Filters</h1>
+      </div>
       <hr/>
       <div id="filterContentBox">
-
         
         <form onSubmit = {handleSubmit}>
           <div id="searchTitleBox">

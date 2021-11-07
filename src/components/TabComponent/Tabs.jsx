@@ -4,6 +4,7 @@ import CharactersTab from "./CharactersTab";
 import TextTab from "./TextTab";
 
 const Tabs = (props) => {
+  
   const handleDetailsTab = () => {
     props.tabIsText("Details");
   };

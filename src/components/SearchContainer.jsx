@@ -1,51 +1,41 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-/*
-const DivStyled = styled.div`
-background-color:#B31E1E;
-border-radius: 10px;
-height: 110px;
-position:absolute;
-left:50%;
-top:75%;
-transform: translate(-50%,-50%);
-padding: 15px;
-`;
-
-const Label = styled.label`
-font-weight: bold;
-font-size: 25px;
-margin-right: 15%;
-margin-left: 10%;
-
-`;
-
-const Button = styled.button`
-color: white;
-border-radius: 5px;
-margin: 10px;
-font-weight: bold;
-background-color: #2C297C;
-
-`;
-
-
-const Input = styled.input`
-
-height: 20px;
-border-radius: 5px;
-`;
-*/
 
 const SearchContainer = (props) => {
+  const [title, updateTitle] = useState();
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const handleInputChange = e => {
     updateTitle(e.target.value);
   }
 
-  const [title, updateTitle] = useState();
+  /*
+  const loadingHandler = () => {
+    setLoading(!loading);
+    setShow(!show);
+  };
+  
+  useEffect (() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+  }, [loading]);
+  
+    if (loading) {
+      return (
+        <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>
+      );
+    }
+
   return (
+
+    <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>*/
+
+
+    return (
     <div id="searchContainer">
 
       <div id="homeTitleInput">
@@ -54,31 +44,17 @@ const SearchContainer = (props) => {
       <div id="homeButtons">
       <Link to={{pathname:"/default", state: {title: title }}}>
         <div id="matchingButton">
-          <button type="button" data-inline="true">Show matching Plays</button>
+          <button type="button" data-inline="true" >Show matching Plays</button>
         </div>
       </Link>
       <Link to={{pathname:"/default", state: {title: '' }}}>
         <div id="showAllButton">
-          <button type="button" data-inline="true">Show All Plays</button>
+          <button type="button" data-inline="true"  >Show All Plays</button>
         </div>
       </Link>
       </div>
-    </div>
+    </div> 
   );
 };
 
-/*
-<DivStyled>
-      <Label htmlFor="title">Title</Label>
-      <Input type="text" id="title" onChange={handleInputChange}></Input>
-    
-      <p>
-      <Link to={{pathname:"/default", state: {title: title }}}>
-        <Button type="button">Show matching Plays</Button>
-      </Link>
-      <Link to={{pathname:"/default", state: {title: '' }}}>
-        <Button type="button">Show All Plays</Button>
-      </Link>
-      </p>
-    </DivStyled> */
 export default SearchContainer;

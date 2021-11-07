@@ -67,57 +67,6 @@ const TextTab = (props) => {
         </div>
       </div>
     );
-    /*
-    } else {
-      
-
-      var allLines = "";
-
-      return (     
-        <div className="TextTab">
-          <div>{props.playInfo.title}</div>
-          <div> {props.currentAct}</div>
-          <br/>
-          <div> {props.currentScene}</div> 
-          <hr></hr>
-          <div id="speakerSpeeches"> 
-            {props.playInfo.acts.map((a) => {
-              if (a.name === props.currentAct) {
-                    a.scenes.map((s) => {
-                      if (s.name === props.currentScene) {
-                          s.speeches.map((speeches, index) => {
-                            if (speeches.speaker === props.currentSpeaker) {
-                              allLines += speeches.speaker + '\n' + speeches.lines + '\n';
-
-                              /*
-                              return (
-                                <p key={index}>{speeches.speaker} <br/> {speeches.lines} </p>
-                              )
-                              */
-    /*
-                            }
-                            
-                          })
-                      
-                      }
-                        
-                    })
-              }
-            })}
-
-            
-            <Highlighter
-              highlightClassName="highlightedWords"
-              searchWords={[props.highlightedWord]}
-              autoEscape={true}
-              textToHighlight= {allLines}
-            />
-            
-          </div>
-         
-        </div>      
-      );
-    } */
   }
 };
 export default TextTab;

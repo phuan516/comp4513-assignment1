@@ -8,7 +8,9 @@ const FavoriteBox = (props) => {
       <hr/>
       <div id="favoritesList">
         {props.plays.map((p, index) => (
-        <FavoriteItem play={p} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent} key={index}/>
+        <FavoriteItem play={p} removeFromLike={props.removeFromLike} 
+        updateCurrent={props.updateCurrent} updatePlayInfo={props.updatePlayInfo}
+          key={index}/>
         ))}
       </div>
     </div>

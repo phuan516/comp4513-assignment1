@@ -1,6 +1,8 @@
 import React from "react";
 
 const CharactersTab = (props) => {
+  console.log(props.playInfo.id);
+  
   const personas = props.playInfo.persona;
 
   return (
