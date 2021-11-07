@@ -78,6 +78,7 @@ function App() {
           addToLike={addLikes}
           removeFromLike={removeLikes}
           current={currentPlay}
+          filters = {filteredData}
         />
       </Route>
     </main>
