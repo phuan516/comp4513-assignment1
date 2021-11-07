@@ -20,7 +20,6 @@ function App() {
         const data = await response.json();
 
         localStorage.setItem("playData", JSON.stringify(data));
-        
       } catch (err) {
         console.error(err);
       }

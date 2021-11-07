@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const FavoriteItem = (props) => {
-
   const remove = () => {
     props.removeFromLike(props.play);
+    alert(props.play.title + " has been removed from favorite");
   };
 
   const updateCurrentPlay = () => {
@@ -25,11 +24,13 @@ const FavoriteItem = (props) => {
 
   return (
     <div id="favoriteItem">
-      
       <Link to="/playDetails">
-          <button className="link" onClick={updateCurrentPlay}> {props.play.title} </button>
-        </Link><br/>
-
+        <a href="#" onClick={updateCurrentPlay}>
+          {" "}
+          {props.play.title}{" "}
+        </a>
+      </Link>
+      <br />
       <button type="button" id="deleteButton" onClick={remove}>
         Remove
       </button>
