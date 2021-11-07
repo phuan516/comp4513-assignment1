@@ -11,16 +11,17 @@ const currentPlay = () => {
 }
 
   return (
-    <div>
-      <p>{props.play.title}</p>
-      <p>{props.play.likelyDate}</p>
-      <button type="button" onClick={add}>
-        Like
-      </button>
-      <Link to="/playDetails">
-        <button type="button" onClick={currentPlay}>View</button>
-      </Link>
-      
+    <div id="listBoxItems">
+        <p id="playInfoTitle">{props.play.title}</p>
+        <p id="playDate">{props.play.likelyDate}</p>
+      <div id="playListButtons">
+        <button type="button" id="likeButton" onClick={add}>
+          Like
+        </button>
+        <Link to="/playDetails">
+          <button type="button" onClick={currentPlay}>View</button>
+        </Link>
+        </div>
     </div>
   );
 };

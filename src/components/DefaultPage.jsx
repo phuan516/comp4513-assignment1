@@ -134,15 +134,21 @@ const DefaultPage = (props) => {
     };
   
   
+    
+
   return (
-    <div>
+    <div id="defaultPage">
       <HeaderBar />
-      <FavoriteBox
-        plays={props.likedPlays}
-        removeFromLike={props.removeFromLike}
-      />
-      <FilterBox updateFilteredData={updateFilteredData} title = {title} matchesFound = {matchesFound}/>
-      <ListBox plays={props.plays} addToLike={props.addToLike} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent}/>
+      <div id="defaultPageInfoBox">
+        <div id="defaultFavoriteBox">
+          <FavoriteBox
+            plays={props.likedPlays}
+            removeFromLike={props.removeFromLike}
+          />
+        </div>
+        <FilterBox updateFilteredData={updateFilteredData} title = {title} matchesFound = {matchesFound}/>
+        <ListBox plays={props.plays} addToLike={props.addToLike} removeFromLike={props.removeFromLike} updateCurrent={props.updateCurrent} matchesBoolean={matchesFound}/>
+      </div>
     </div>
   );
 };

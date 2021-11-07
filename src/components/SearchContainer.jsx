@@ -47,15 +47,20 @@ const SearchContainer = (props) => {
   const [title, updateTitle] = useState();
   return (
     <div id="searchContainer">
-      <label htmlFor="title">Title</label>
-      <input type="text" id="title" onChange={handleInputChange}></input>
-    
+
+      <div id="homeTitleInput">
+        <input type="text" id="title" placeholder="Search Play Here" onChange={handleInputChange}></input>
+      </div>
       <div id="homeButtons">
       <Link to={{pathname:"/default", state: {title: title }}}>
-        <button type="button">Show matching Plays</button>
+        <div id="matchingButton">
+          <button type="button" data-inline="true">Show matching Plays</button>
+        </div>
       </Link>
       <Link to={{pathname:"/default", state: {title: '' }}}>
-        <button type="button">Show All Plays</button>
+        <div id="showAllButton">
+          <button type="button" data-inline="true">Show All Plays</button>
+        </div>
       </Link>
       </div>
     </div>

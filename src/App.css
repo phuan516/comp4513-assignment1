@@ -90,10 +90,9 @@
   padding-right: 20px;
   width: auto;
   height: 88vh;
-  grid-template-columns: 0.5fr 2fr 4fr;
+  grid-template-columns: 1fr 2fr 4fr;
   gap: 1rem;
   font-family: serif;
-
 
   @media (max-width: 1200px) {
   grid-template-columns: 0.5fr 2fr;
@@ -106,17 +105,22 @@
   
   height: 88vh;
   background: #053742;
-  border-style:solid;
-  border-color: lightblue;
+  border-style: solid;
+  border-color: lightseagreen;
   color: white;
+  text-align: center;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y:auto;
 
 }
 
 #playTitleBox {
   height: 88vh;
   background: #053742;
-  border-style:solid;
-  border-color: lightblue;
+  border-style: solid;
+  border-color: lightseagreen;
+  border-radius: 10px;
   color: white;
   
 }
@@ -143,8 +147,9 @@
 
 #tabsBox {
   background: #053742;
-  border-style:solid;
-  border-color: lightblue;
+  border-style: solid;
+  border-color: lightseagreen;
+  border-radius: 10px;
   color: white;
   height: 88vh;
 }
@@ -190,18 +195,111 @@
   background: #555; 
 }
 
-
-
-/* https://www.w3schools.com/howto/howto_custom_select.asp */
-
+/* https://www.w3schools.com/howto/howto_css_full_page.asp */
 #homePage{
-  height:100%;
-  width: 100%;
-  background-color: lightcoral;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1553782749-5ab8693a5f4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1078&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 #homeSearch {
-  background-color: lightblue;
+  height: 20%;
+  width: 50vh;
+  background: rgba(83, 98, 139, 0.993); 
+  border-radius: 1rem;
+  position: absolute;
+  /*
+  top:40%;
+  left: 39%;
+  right: 39%; */
+  margin-top: 20%;
+  margin-left: 37.5%;
+  margin-right: 37.5%;
+  margin-bottom: 20%;
+  border-style: solid;
+  border-color: rgba(255, 0, 0, 0.431);
+}
+
+
+#homeTitleInput {
+  position: relative;
+  margin-top: 8%;
+  margin-bottom: 1vh;
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+#homeTitleInput input {
+  width: 30vh;
+  padding: 5%;
+  border-radius: 0.6rem;
+  border-style: solid;
+  border-color: goldenrod;
+}
+
+#homeTitleInput input:hover {
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  transition: all 0.6s;
+}
+
+
+#homeButtons {
+  margin-left: 17%;
+  margin-right: 10%;
+  margin-bottom: 50%;
+  width: 33.5vh;
+}
+
+#homeButtons button {
+  
+  cursor: pointer;
+  background: #39A2DB;
+  color: white;
+  border-radius: 0.4rem;
+  font-size: 1.2vh;
+  width: 16.75vh;
+  height: 5vh;
+}
+
+#homeButtons button:hover {
+  background: rgba(50, 224, 196, 0.15);
+  transition: all 0.7s;
+  color: rgb(211, 211, 211);
+}
+
+#matchingButton {
+  display: inline-block;
+  
+  
+}
+
+#showAllButton {
+  display: inline-block;
+}
+
+#heroCredit {
+  position: absolute;
+  color: white;
+  bottom: 50px;
+  margin-left: 42%;
+  margin-right: 42%;
+}
+
+#heroCredit a {
+  text-decoration: none;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
 }
 
 .SearchContainer {
@@ -312,3 +410,124 @@
   background: rgba(50, 224, 196, 0.15);
   transition: all 0.7s;
 }
+
+/* Default page CSS*/
+
+#defaultPage {
+  display: grid;
+  grid-template-rows: 0.5fr;
+  gap: 1rem;
+  font-family: serif;
+  background: rgba(50, 224, 196, 0.15); 
+  height: 100vh;
+}
+
+#defaultPageInfoBox {
+  display: grid;
+  padding-right: 20px;
+  width: auto;
+  height: 88vh;
+  grid-template-columns: 1fr 3fr 4fr;
+  gap: 1rem;
+  font-family: serif;
+  
+}
+
+#defaultFavoriteBox {
+  background: #053742;
+  border-style: solid;
+  border-color: lightseagreen;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y:auto;
+}
+
+#filterBox {
+  background: #053742;
+  border-style: solid;
+  border-color: lightseagreen;
+  color: white;
+  border-radius: 10px;
+}
+
+#filterTitle {
+  text-align: center;
+}
+
+#listBox {
+  background: #053742;
+  border-style: solid;
+  border-color: lightseagreen;
+  color: white;
+  border-radius: 10px;
+}
+
+#listTitle {
+  text-align: center;
+}
+
+#listPlayBox {
+ 
+  padding: 1rem 2rem 2rem 1rem;
+  overflow-x: hidden;
+  overflow-y:auto;
+  height: 63vh;
+}
+
+#listHeader {
+  padding: 0 0 0rem 1rem;
+  display: grid;
+  grid-template-columns: 0.9fr 0.4fr 1fr 0.5fr 0.5fr 0.5fr ;
+}
+
+#titleLabel {
+  
+  grid-column: span 1;
+}
+
+#listLabel {
+  
+  grid-column: 3;
+}
+
+#playInfoTitle {
+  
+}
+
+#playDate {
+  
+  grid-column: 3;
+}
+
+#listBoxItems{
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 1fr;
+  
+}
+
+#playListButtons {
+  
+  width: 20rem;
+  grid-column: 4;
+}
+#playListButtons button {
+  margin-top: 1.4vh;
+  margin-left: 5vh;
+  color: white;
+  width: 4rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: #39A2DB;
+  border-radius: 0.5rem;
+}
+
+#playListButtons button:hover {
+  background: rgba(50, 224, 195, 0.445);
+  transition: all 0.7s;
+  color: rgb(211, 211, 211);
+}
+
+
+
