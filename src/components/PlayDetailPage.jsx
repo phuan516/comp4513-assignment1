@@ -154,7 +154,7 @@ const PlayDetailPage = (props) => {
             </form>
             </div>
             <div id="textPlayDetailsButtons">
-              <Link to="/default">
+              <Link to={{pathname: "/default", state: {filters: props.filters}}} >
                 <button type="button" id="closeButton"> Close </button>
               </Link>
               <button onClick={addToLike}> Like </button>
@@ -199,7 +199,7 @@ const PlayDetailPage = (props) => {
               <div id="synopsisBox">{props.current.synopsis}</div>
 
               <div id="playDetailsButtons">
-                <Link to="/default">
+                <Link to={{pathname: "/default", state: {filters: props.filters}}} >
                   <button type="button" id="closeButton"> Close </button>
                 </Link>
                 <button onClick={addToLike}> Like </button>
