@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const SearchContainer = (props) => {
   const [title, updateTitle] = useState();
   const [show, setShow] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleInputChange = e => {
     updateTitle(e.target.value);

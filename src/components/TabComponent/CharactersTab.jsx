@@ -1,9 +1,10 @@
 import React from "react";
 
-const CharactersTab = (props) => {
-  console.log(props.playInfo.id);
-  
-  const personas = props.playInfo.persona;
+const CharactersTab = (props) => {  
+
+  let i = [];
+  i = JSON.parse(localStorage.getItem("playInfo"));
+  const personas = i.persona;
 
   return (
     <div className="CharactersTab">

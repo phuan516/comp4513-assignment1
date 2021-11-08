@@ -3,8 +3,8 @@ import DetailsTab from "./DetailsTab";
 import CharactersTab from "./CharactersTab";
 import TextTab from "./TextTab";
 
+
 const Tabs = (props) => {
-  
   const handleDetailsTab = () => {
     props.tabIsText("Details");
   };
@@ -29,6 +29,8 @@ const Tabs = (props) => {
       </div>
     );
   } else {
+
+    let a = props.tab;
     return (
       <div className="Tabs">
         <ul className="nav">
@@ -60,17 +62,19 @@ const Tabs = (props) => {
           {props.tab === "Details" ? (
             <DetailsTab current={props.current} />
           ) : props.tab === "Characters" ? (
-            <CharactersTab current={props.current} playInfo={props.playInfo} />
-          ) : (
+            <CharactersTab current={props.current}/>
+          ) : props.tab === "Text" ? (
             <TextTab
               current={props.current}
-              playInfo={props.playInfo}
+              playInfo={JSON.parse(localStorage.getItem("playInfo"))}
+              //playInfo={props.playInfo}
               currentAct={props.currentAct}
               currentScene={props.currentScene}
               currentSpeaker={props.currentSpeaker}
               highlightedWord={props.highlightedWord}
+
             />
-          )}
+          ) : ""}
         </div>
       </div>
     );

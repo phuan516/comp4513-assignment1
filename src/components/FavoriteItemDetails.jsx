@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FavoriteItem = (props) => {
+const FavoriteItemDetails = (props) => {
   const remove = () => {
     props.removeFromLike(props.play);
     alert(props.play.title + " has been removed from favorite");
@@ -15,6 +15,8 @@ const FavoriteItem = (props) => {
     .then (response => response.json())
     .then(data => { localStorage.setItem("playInfo", JSON.stringify(data))} )
     //.then (error => {console.log(error)});
+    
+    props.updateTab();
   }
 
   
@@ -35,4 +37,4 @@ const FavoriteItem = (props) => {
   );
 };
 
-export default FavoriteItem;
+export default FavoriteItemDetails;

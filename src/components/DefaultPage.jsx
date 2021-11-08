@@ -5,6 +5,8 @@ import FilterBox from "./FilterBox";
 import ListBox from "./ListBox";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CSSTransition } from 'react-transition-group';
+
 
 const DefaultPage = (props) => {
   const location = useLocation();
@@ -213,16 +215,15 @@ const DefaultPage = (props) => {
   };
 
   return (
-    <div id="defaultPage">
+    <div className="defaultPage">
       <HeaderBar />
       <div id="defaultPageInfoBox">
         <div id="defaultFavoriteBox">
+          
           <FavoriteBox
             plays={props.likedPlays}
             removeFromLike={props.removeFromLike}
             updateCurrent={props.updateCurrent}
-            updatePlayInfo={props.updatePlayInfo}
-            
           />
         </div>
         <FilterBox

@@ -1,14 +1,14 @@
 import React from "react";
-import FavoriteItem from "./FavoriteItem";
+import FavoriteItemDetails from "./FavoriteItemDetails";
 
-const FavoriteBox = (props) => {
+const FavoriteBoxDetails = (props) => {
   return (
     <div id="favoritesBox">
       <h1>Favorites</h1>
       <hr/>
       <div id="favoritesList">
         {props.plays.map((p, index) => (
-        <FavoriteItem play={p} removeFromLike={props.removeFromLike} 
+        <FavoriteItemDetails play={p} removeFromLike={props.removeFromLike} 
         updateCurrent={props.updateCurrent} updateTab={props.updateTab}
           key={index}/>
         ))}
@@ -17,4 +17,4 @@ const FavoriteBox = (props) => {
   );
 };
 
-export default FavoriteBox;
+export default FavoriteBoxDetails;

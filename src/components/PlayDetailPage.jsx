@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeaderBar from "./HeaderBar";
-import FavoriteBox from "./FavoritesBox";
+import FavoriteBoxDetails from "./FavoritesBoxDetails";
 import Tabs from "./TabComponent/Tabs";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -16,6 +16,10 @@ const PlayDetailPage = (props) => {
   const tabIsText = (tab) => {
     setTab(tab);
   };
+
+  const updateTabThroughClick = () => {
+    setTab("Details");
+  }
 
   const handleCurrentAct = (e) => {
     console.log(e.target.value);
@@ -67,11 +71,7 @@ const PlayDetailPage = (props) => {
           props.current.id;
         const response = await fetch(url);
         const data = await response.json();
-
-        //setPlayInfo(data);
-
         localStorage.setItem("playInfo", JSON.stringify(data));
-        props.updatePlayInfo(JSON.parse(localStorage.getItem("playInfo")));
 
       } catch (err) {
         console.error(err);
@@ -83,6 +83,9 @@ const PlayDetailPage = (props) => {
   }, []);
 
   if (tab === "Text") {
+    let i = [];
+    i = JSON.parse(localStorage.getItem("playInfo"));
+
     return (
       <div className="playDetailsPage">
         <div id="detailsHeaderBar">
@@ -91,17 +94,18 @@ const PlayDetailPage = (props) => {
 
         <div id="playDetailsBox">
           <div id="detailsFavoriteList">
-            <FavoriteBox
+            <FavoriteBoxDetails
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
               updateCurrent={props.updateCurrent}
-              updatePlayInfo={props.updatePlayInfo}
+
+              updateTab={updateTabThroughClick}
             />
           </div>
 
           <div id="playTitleBox">
             <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" class="checkboxFave" /> </div>
+              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
             
@@ -112,7 +116,7 @@ const PlayDetailPage = (props) => {
               {/* This handles the act filter and adds current act*/}
 
               <select name="act" id="act" onChange={handleCurrentAct}>
-                {props.playInfo.acts.map((a) => {
+                {i.acts.map((a) => {
                   return (
                     <option value={a.name} key={a.name}>
                       {" "}
@@ -124,7 +128,7 @@ const PlayDetailPage = (props) => {
 
               {/* This handles the scene filter corresponding to the act*/}
               <select name="scene" id="scene" onChange={handleCurrentScene}>
-                {props.playInfo.acts.map((act) => {
+                {i.acts.map((act) => {
                   if (act.name === currentAct) {
                     return act.scenes.map((s) => {
                       return (
@@ -147,7 +151,7 @@ const PlayDetailPage = (props) => {
                 onChange={handleCurrentSpeaker}
               >
                 <option value=""> Choose Player Here </option>
-                {props.playInfo.persona.map((p) => {
+                {i.persona.map((p) => {
                   return (
                     <option value={p.player} key={p.player}>
                       {" "}
@@ -178,7 +182,6 @@ const PlayDetailPage = (props) => {
           <div id="tabsBox">
             <Tabs
               current={props.current}
-              playInfo={props.playInfo}
               tab={tab}
               tabIsText={tabIsText}
               currentAct={currentAct}
@@ -199,17 +202,17 @@ const PlayDetailPage = (props) => {
 
         <div id="playDetailsBox">
           <div id="detailsFavoriteList">
-            <FavoriteBox
+            <FavoriteBoxDetails
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
               updateCurrent={props.updateCurrent}
-              updatePlayInfo={props.updatePlayInfo}
+              updateTab={updateTabThroughClick}
             />
           </div>
 
           <div id="playTitleBox">
             <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" class="checkboxFave" /> </div>
+              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
             <hr></hr>
@@ -228,7 +231,6 @@ const PlayDetailPage = (props) => {
           <div id="tabsBox">
             <Tabs
               current={props.current}
-              playInfo={props.playInfo}
               tab={tab}
               tabIsText={tabIsText}
               currentAct={currentAct}

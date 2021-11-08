@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Highlighter from "react-highlight-words";
 
 const TextTab = (props) => {
+
   if (props.currentSpeaker === "") {
     return (
       <div className="TextTab">
