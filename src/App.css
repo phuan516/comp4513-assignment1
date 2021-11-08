@@ -410,7 +410,7 @@ a:visited {
   padding-right: 10px;
   overflow-x: hidden;
   overflow-y:auto;
-  height: 50vh;
+  height: 45vh;
   
 }
 
@@ -425,8 +425,8 @@ a:visited {
 }
 
 #deleteButton:hover {
-  background: rgba(50, 224, 196, 0.15);
-  transition: all 0.7s;
+  font-size: 1.8vh;
+  transition: all 1s;
 }
 
 /* Default page transition group CSS */
@@ -597,25 +597,26 @@ button {
 #listHeader {
   padding: 0 0 0rem 1rem;
   display: grid;
-  grid-template-columns: 0.9fr 0.4fr 1fr 0.5fr 0.5fr 0.5fr ;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.8fr;
 }
 
 #titleLabel {
-  
-  grid-column: span 1;
+  width: 25vh;
+  grid-column: 1;
 }
 
 #listLabel {
-  
-  grid-column: 3;
+  width: 10vh;
+  grid-column: 2;
 }
 
 #playInfoTitle {
-  
+  width: 25vh;
 }
 
 #playDate {
   grid-column: 3;
+  width: 10vh;
 }
 
 #listBoxItems{
@@ -624,9 +625,15 @@ button {
   
 }
 
+#listBoxItems:hover {
+  font-size: 2.1vh;
+  background-color: #c9c9c9;
+  transition: all 1s;
+
+}
+
 #playListButtons {
-  
-  width: 20rem;
+  width: 35vh;
   grid-column: 4;
 }
 #playListButtons button {
@@ -775,19 +782,24 @@ button {
   background: rgba(50, 224, 196, 0.15);
   padding: 0.45rem;
   transition: all 1s;
-  font-size: 1.2vh;
+  font-size: 1.8vh;
 }
 
 #clearButton:hover {
   background: rgba(50, 224, 196, 0.15);
   padding: 0.45rem;
   transition: all 1s;
-  font-size: 1.2vh;
+  font-size: 1.8vh;
 }
 
 #favoriteItem {
-  margin-top: 2vh;
-  margin-bottom: 3vh;
+  
+}
+
+#favoriteItem:hover {
+  font-size: 2.1vh;
+  background-color: #c9c9c9;
+  transition: all 0.7s;
 }
 
 button.link {
