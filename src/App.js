@@ -1,7 +1,7 @@
 import HomePage from "./components/HomePage";
 import DefaultPage from "./components/DefaultPage";
 import PlayDetailPage from "./components/PlayDetailPage";
-import { Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 function App() {
@@ -69,6 +69,7 @@ function App() {
   
   return (
     <main>
+      <HashRouter basename='/'>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage}/>
         <Route path="/default">
@@ -108,6 +109,7 @@ function App() {
           updateFaveBox={updateFaveBox}
         />
       </Route>
+     </ HashRouter>
     </main>
   );
 }
