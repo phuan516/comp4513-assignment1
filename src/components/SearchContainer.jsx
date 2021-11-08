@@ -1,37 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SearchContainer = (props) => {
   const [title, updateTitle] = useState();
-  const [show, setShow] = useState(false);
 
   const handleInputChange = e => {
     updateTitle(e.target.value);
   }
 
-  /*
-  const loadingHandler = () => {
-    setLoading(!loading);
-    setShow(!show);
-  };
-  
-  useEffect (() => {
-    if (loading) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-    }
-  }, [loading]);
-  
-    if (loading) {
-      return (
-        <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>
-      );
-    }
-
-  return (
-
-    <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>*/
+  /* <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>*/
 
 
     return (

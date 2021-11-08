@@ -30,7 +30,6 @@ const Tabs = (props) => {
     );
   } else {
 
-    let a = props.tab;
     return (
       <div className="Tabs">
         <ul className="nav">

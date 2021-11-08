@@ -10,6 +10,9 @@ function App() {
   const [like, setLike] = useState([]);
   const [currentPlay, setCurrentPlay] = useState([]);
 
+  const [isChecked, setIsChecked] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(true); 
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -55,13 +58,21 @@ function App() {
     
   };
 
+  /* https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react */
+  const updateIsChecked = () => {
+    setIsChecked(!isChecked);
+  }
+
+  const updateFaveBox = () => {
+    setShowFavorites(!showFavorites);
+  }
   
   return (
     <main>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage}/>
         <Route path="/default">
-            <DefaultPage
+        <DefaultPage
               mainData={data}
               setFilteredData={setFilteredData}
               plays={filteredData}
@@ -71,8 +82,14 @@ function App() {
               updateCurrent={updateCurrentPlay}
               current={currentPlay}
 
+              isChecked={isChecked}
+              updateIsChecked={updateIsChecked}
 
-            />
+              showFavorites={showFavorites}
+              updateFaveBox={updateFaveBox}
+
+            />;
+            
         </Route>
       <Route path="/playDetails">
         <PlayDetailPage
@@ -84,6 +101,11 @@ function App() {
           updateCurrent={updateCurrentPlay}
           filters={filteredData}
 
+          isChecked={isChecked}
+          updateIsChecked={updateIsChecked}
+
+          showFavorites={showFavorites}
+          updateFaveBox={updateFaveBox}
         />
       </Route>
     </main>

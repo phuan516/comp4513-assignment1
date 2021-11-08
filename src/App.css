@@ -1,3 +1,8 @@
+main {
+  height:100%;
+  width: 100%;
+}
+
 .App {
   text-align: center;
   height: 100vh;
@@ -74,35 +79,23 @@
   grid-template-rows: 0.5fr;
   gap: 1rem;
   font-family: serif;
-  background: rgba(50, 224, 196, 0.15); 
+  background-color: rgba(50, 224, 196, 0.15); 
   height: 100vh;
-
-}
-
-#headerBar{
-  grid-row: span 1;
-  border-style:solid;
-  border-color: lightblue;
+  width: 100%;
 }
 
 #playDetailsBox {
   display: grid;
-  padding-right: 20px;
+  padding-right: 3vh;
   width: auto;
   height: 88vh;
-  grid-template-columns: 1fr 3fr 4fr;
+  grid-template-columns: 0.5fr 3fr 4fr;
   gap: 1rem;
   font-family: serif;
-
-  @media (max-width: 1200px) {
-  grid-template-columns: 0.5fr 2fr;
-  gap: 1rem;
-  }
 
 }
 
 #detailsFavoriteList {
-  
   height: 88vh;
   background: #053742;
   border-style: solid;
@@ -110,13 +103,12 @@
   color: white;
   text-align: center;
   border-radius: 10px;
-  overflow-x: hidden;
-  overflow-y:auto;
 
 }
 
 #playTitleBox {
   height: 88vh;
+  grid-column: 2;
   background: #053742;
   border-style: solid;
   border-color: lightseagreen;
@@ -132,6 +124,7 @@
 #playTitle {
   text-align: center;
   grid-column: 2;
+  font-size: 4vh;
   /*
   text-align: center;
   margin-bottom: 30px;
@@ -154,12 +147,14 @@
 }
 
 #tabsBox {
+
   background: #053742;
   border-style: solid;
   border-color: lightseagreen;
   border-radius: 10px;
   color: white;
   height: 88vh;
+  grid-column: 3;
 }
 
 .outlet {
@@ -175,6 +170,7 @@
   display: grid;
   padding: 1rem 3rem 0rem 1rem;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  
 }
 
 #tabHR {
@@ -366,14 +362,15 @@ a:visited {
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top: 51vh;
+  margin-top: 39vh;
 }
 
 #textPlayDetailsButtons {
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top: 45vh;
+  margin-top: 22vh;
+  
 }
 
 #playDetailsButtons button,#textPlayDetailsButtons button {
@@ -387,6 +384,7 @@ a:visited {
 
 #textPlayDetailsButtons #likeButton {
   color: red;
+
 }
 #playDetailsButtons #likeButton{
   color: red;
@@ -398,7 +396,7 @@ a:visited {
 }
 
 #likeButton {
-  font-size: 1.4vh;
+  font-size: 2.5vh;
 }
 
 #playDetailsButtons button:hover ,#textPlayDetailsButtons button:hover {
@@ -444,7 +442,57 @@ a:visited {
   gap: 1rem;
   font-family: serif;
   background: rgba(50, 224, 196, 0.15); 
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-height: 700px) {
+  .defaultPage {
+    height: 100%;
+    overflow-y: hidden;
+
+  }
+}
+
+#headerBar {
+  
+  background: #053742;
+  border-style: solid;
+  border-color: lightseagreen;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+#homeLogoButton {
+  grid-column: 1;
+  margin-left: 2vh;
+  margin-top: 0.5vh;
+}
+
+#aboutButton {
+  grid-column: 3;
+}
+
+button {
+  border-style:solid;
+  border-color: lightblue;
+}
+
+#aboutButton button {
+  margin-left: 38vh;
+  margin-top: 0.5vh;
+  color: white;
+  width: 4rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: #39A2DB;
+  border-radius: 0.5rem;
+}
+
+#aboutButton button:hover {
+  background: rgba(50, 224, 195, 0.445);
+  transition: all 0.7s;
+  color: rgb(211, 211, 211);
 }
 
 #defaultPageInfoBox {
@@ -452,9 +500,10 @@ a:visited {
   padding-right: 20px;
   width: auto;
   height: 88vh;
-  grid-template-columns: 1fr 3fr 4fr;
+  grid-template-columns: 0.5fr 3fr 4fr;
   gap: 1rem;
   font-family: serif;
+
   
 }
 
@@ -465,16 +514,22 @@ a:visited {
   color: white;
   text-align: center;
   border-radius: 10px;
+  height: 85vh;
   
+}
+
+#favoritesBox {
+  font-size: 2vh;
 }
 
 #favoritesList {
   overflow-x: hidden;
   overflow-y:auto;
-  height: 75vh;
+  height: 70vh;
 }
 
 #filterBox {
+  height: 85vh;
   background: #053742;
   border-style: solid;
   border-color: lightseagreen;
@@ -497,8 +552,8 @@ a:visited {
 }
 
 #checkBoxDiv [type='checkbox'] {
-  width: 20px;
-  height: 20px;
+  width: 3vh;
+  height: 3vh;
   transition: visibility 0s linear 0.33s, opacity 0.33s linear;
   cursor: pointer;
 }
@@ -513,15 +568,18 @@ a:visited {
 #filterTitle {
   text-align: center;
   grid-column: 2;
+  font-size: 3.5vh;
 
 }
 
 #listBox {
+  height: 85vh;
   background: #053742;
   border-style: solid;
   border-color: lightseagreen;
   color: white;
   border-radius: 10px;
+  font-size: 2vh;
 }
 
 #listTitle {
@@ -533,7 +591,7 @@ a:visited {
   padding: 1rem 2rem 2rem 1rem;
   overflow-x: hidden;
   overflow-y:auto;
-  height: 63vh;
+  height: 52vh;
 }
 
 #listHeader {
@@ -692,7 +750,7 @@ a:visited {
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top: 28.32vh;
+  margin-top: 15vh;
 }
 
 #filterButtons button {
@@ -706,11 +764,11 @@ a:visited {
 
 #filterButton {
   margin-right: 1rem;
-  font-size: 1.4vh;
+  font-size: 2vh;
 }
 
 #clearButton {
-  font-size: 1.4vh;
+  font-size: 2  vh;
 }
 
 #filterButton:hover {
@@ -748,4 +806,29 @@ button.link {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.DetailsTab {
+  font-size: 1.5vh;
+}
+
+.CharactersTab {
+  font-size: 1.5vh;
+  overflow-x: hidden;
+  overflow-y:auto;
+  height: 65vh;
+}
+
+.TextTab {
+  font-size: 1.5vh;
+}
+
+#hiddenFaveBox {
+  width: 50%;
+  height: 88vh;
+  background: #053742;
+  border-style: solid;
+  border-color: lightseagreen;
+  border-radius: 10px;
+  transition: opacity 2s;
 }

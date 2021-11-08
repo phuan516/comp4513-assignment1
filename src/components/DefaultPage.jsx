@@ -218,18 +218,22 @@ const DefaultPage = (props) => {
     <div className="defaultPage">
       <HeaderBar />
       <div id="defaultPageInfoBox">
-        <div id="defaultFavoriteBox">
+        
           
-          <FavoriteBox
+          {props.showFavorites && props.isChecked === false ? <div id="defaultFavoriteBox"> <FavoriteBox
             plays={props.likedPlays}
             removeFromLike={props.removeFromLike}
             updateCurrent={props.updateCurrent}
-          />
-        </div>
+          /> </div> : <div id="hiddenFaveBox"> </div>}
+          
+        
         <FilterBox
           updateFilteredData={updateFilteredData}
           title={title}
           matchesFound={matchesFound}
+
+          updateIsChecked={props.updateIsChecked}
+          updateFaveBox={props.updateFaveBox}
         />
         <ListBox
           plays={props.plays}

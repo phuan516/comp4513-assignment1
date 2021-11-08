@@ -24,12 +24,14 @@ const FavoriteItemDetails = (props) => {
   return (
     <div id="favoriteItem">
       <Link to="/playDetails">
-        <a href="#" onClick={updateCurrentPlay}>
+        <p onClick={updateCurrentPlay}> {" "}
+          {props.play.title}{" "} </p>
+        {/*<a href="#" onClick={updateCurrentPlay} >
           {" "}
           {props.play.title}{" "}
-        </a>
+          </a> */}
       </Link>
-      <br />
+
       <button type="button" id="deleteButton" onClick={remove}>
         Remove
       </button>

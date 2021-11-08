@@ -94,12 +94,17 @@ useEffect (() => {
     setBeforeCheck({status: true});
     setAfterCheck({status: true});
   }
+
+  const updateBoxForFave = () => {
+    props.updateFaveBox();
+    props.updateIsChecked();
+  }
   
 
     return (
     <div id="filterBox">
       <div id="filtersAndCheck">
-        <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
+        <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" onChange={updateBoxForFave}/> </div>
         <h1 id="filterTitle">Play Filters</h1>
       </div>
       <hr/>

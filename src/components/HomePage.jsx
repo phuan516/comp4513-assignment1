@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect }from "react";
 import SearchContainer from "./SearchContainer";
 
 const HomePage = (props) => {
+
+  
+  {useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('This will run after 5 seconds!')
+    }, 5000);
+    clearTimeout(timer);
+    
+  }, [])}
+
   return (
+
+
       <div className="homePage">
         <div id="homeSearch"> <SearchContainer /> 
         </div>

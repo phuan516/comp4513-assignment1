@@ -14,15 +14,18 @@ const HeaderBar = () => {
 
   return (
     <div id="headerBar">
-      <div>
+      <div id="homeLogoButton">
         <Link to="/">
-          <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
+        <img src="https://img.icons8.com/office/30/000000/home--v1.png" alt="homeLogo"/>
         </Link>
       </div>
 
-      <button onClick={openModal} type="button">
-        About
-      </button>
+      <div id="aboutButton">
+        <button onClick={openModal} type="button">
+          About
+        </button>
+      </div>
+      
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <button onClick={closeModal}>close</button>
         <div>

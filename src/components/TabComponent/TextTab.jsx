@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Highlighter from "react-highlight-words";
 
 const TextTab = (props) => {
@@ -30,8 +30,7 @@ const TextTab = (props) => {
     );
   } else {
     /* *****PART SHOWS THE NORMAL TEXT INFORMATION IF USER DID NOT TYPE TO HIGHLIGHT A WORD******   */
-    /*
-    if (props.highlightedWord == "") { */
+    
     return (
       <div className="TextTab">
         <h1>{props.playInfo.title}</h1>

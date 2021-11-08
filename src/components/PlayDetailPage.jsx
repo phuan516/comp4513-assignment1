@@ -63,7 +63,7 @@ const PlayDetailPage = (props) => {
   check();
   
 */
-  useEffect(() => {
+  useEffect((props) => {
     const getInfo = async () => {
       try {
         const url =
@@ -82,102 +82,106 @@ const PlayDetailPage = (props) => {
     
   }, []);
 
+  const updateBoxForFave = () => {
+    props.updateFaveBox();
+    props.updateIsChecked();
+  }
+
   if (tab === "Text") {
     let i = [];
     i = JSON.parse(localStorage.getItem("playInfo"));
 
     return (
       <div className="playDetailsPage">
-        <div id="detailsHeaderBar">
           <HeaderBar></HeaderBar>
-        </div>
 
         <div id="playDetailsBox">
-          <div id="detailsFavoriteList">
+        {props.showFavorites && props.isChecked === false ? <div id="detailsFavoriteList">
             <FavoriteBoxDetails
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
               updateCurrent={props.updateCurrent}
-
               updateTab={updateTabThroughClick}
             />
-          </div>
+          </div> : <div id="hiddenFaveBox"> </div>}
 
           <div id="playTitleBox">
             <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
+              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" onChange={updateBoxForFave}/> </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
             
 
             <hr></hr>
-          <div id="formBox">
-            <form id="textFilterBox">
-              {/* This handles the act filter and adds current act*/}
-
-              <select name="act" id="act" onChange={handleCurrentAct}>
-                {i.acts.map((a) => {
-                  return (
-                    <option value={a.name} key={a.name}>
-                      {" "}
-                      {a.name}{" "}
-                    </option>
-                  );
-                })}
-              </select>
-
-              {/* This handles the scene filter corresponding to the act*/}
-              <select name="scene" id="scene" onChange={handleCurrentScene}>
-                {i.acts.map((act) => {
-                  if (act.name === currentAct) {
-                    return act.scenes.map((s) => {
-                      return (
-                        <option value={s.name} key={s.name}>
-                          {" "}
-                          {s.name}{" "}
-                        </option>
-                      );
-                    });
-                  }
-                })}
-              </select>
-            </form>
-
-            <form className="playerSearch">
-              {/* This handles the word filter corresponding to the speaker*/}
-              <select
-                name="speaker"
-                id="speaker"
-                onChange={handleCurrentSpeaker}
-              >
-                <option value=""> Choose Player Here </option>
-                {i.persona.map((p) => {
-                  return (
-                    <option value={p.player} key={p.player}>
-                      {" "}
-                      {p.player}{" "}
-                    </option>
-                  );
-                })}
-                <option value="clear"> CLEAR SEARCH </option>
-              </select>
-              <br />
-              <input
-                id="highlightedWord"
-                type="text"
-                name="name"
-                onChange={handleHighlightedWord}
-              />
-            </form>
-            </div>
-            <div id="textPlayDetailsButtons">
-              <Link to={{pathname: "/default", state: {filters: props.filters}}} >
-                <button type="button" id="closeButton"> Close </button>
-              </Link>
-              <button onClick={addToLike} id="likeButton"> ❤ </button>
-            </div>
           
-          </div>
+            <div id="formBox">
+              <form id="textFilterBox">
+                {/* This handles the act filter and adds current act*/}
+
+                <select name="act" id="act" onChange={handleCurrentAct}>
+                  {i.acts.map((a) => {
+                    return (
+                      <option value={a.name} key={a.name}>
+                        {" "}
+                        {a.name}{" "}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                {/* This handles the scene filter corresponding to the act*/}
+                <select name="scene" id="scene" onChange={handleCurrentScene}>
+                  {i.acts.map((act) => {
+                    if (act.name === currentAct) {
+                      return act.scenes.map((s) => {
+                        return (
+                          <option value={s.name} key={s.name}>
+                            {" "}
+                            {s.name}{" "}
+                          </option>
+                        );
+                      });
+                    }
+                  })}
+                </select>
+              </form>
+
+              <form className="playerSearch">
+                {/* This handles the word filter corresponding to the speaker*/}
+                <select
+                  name="speaker"
+                  id="speaker"
+                  onChange={handleCurrentSpeaker}
+                >
+                  <option value=""> Choose Player Here </option>
+                  {i.persona.map((p) => {
+                    return (
+                      <option value={p.player} key={p.player}>
+                        {" "}
+                        {p.player}{" "}
+                      </option>
+                    );
+                  })}
+                  <option value="clear"> CLEAR SEARCH </option>
+                </select>
+                <br />
+                <input
+                  id="highlightedWord"
+                  type="text"
+                  name="name"
+                  onChange={handleHighlightedWord}
+                />
+              </form>
+              </div>
+              <div id="textPlayDetailsButtons">
+                <Link to={{pathname: "/default", state: {filters: props.filters}}} >
+                  <button type="button" id="closeButton"> Close </button>
+                </Link>
+                <button onClick={addToLike} id="likeButton"> ❤ </button>
+              </div>
+            
+            </div>
+         
 
           <div id="tabsBox">
             <Tabs
@@ -190,29 +194,29 @@ const PlayDetailPage = (props) => {
               highlightedWord={highlightedWord}
             />
           </div>
+          </div>
+          
         </div>
-      </div>
     );
   } else {
     return (
       <div className="playDetailsPage">
-        <div id="detailsHeaderBar">
           <HeaderBar></HeaderBar>
-        </div>
 
         <div id="playDetailsBox">
-          <div id="detailsFavoriteList">
+        {props.showFavorites && props.isChecked === false ? <div id="detailsFavoriteList">
             <FavoriteBoxDetails
               plays={props.likedPlays}
               removeFromLike={props.removeFromLike}
               updateCurrent={props.updateCurrent}
               updateTab={updateTabThroughClick}
             />
-          </div>
+          </div> : <div id="hiddenFaveBox"> </div>}
+          
 
           <div id="playTitleBox">
             <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
+              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" onChange={updateBoxForFave}/> </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
             <hr></hr>
