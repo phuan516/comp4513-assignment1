@@ -8,9 +8,6 @@ const SearchContainer = (props) => {
     updateTitle(e.target.value);
   }
 
-  /* <div id="loader"><img id="loaderImage" src="./loadingGif/simpson.gif" alt="Loading Plays"></img> </div>*/
-
-
     return (
     <div id="searchContainer">
 

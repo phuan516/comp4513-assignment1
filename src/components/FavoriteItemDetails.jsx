@@ -14,7 +14,6 @@ const FavoriteItemDetails = (props) => {
     fetch (url)
     .then (response => response.json())
     .then(data => { localStorage.setItem("playInfo", JSON.stringify(data))} )
-    //.then (error => {console.log(error)});
     
     props.updateTab();
   }
@@ -26,10 +25,7 @@ const FavoriteItemDetails = (props) => {
       <Link to="/playDetails">
         <p onClick={updateCurrentPlay}> {" "}
           {props.play.title}{" "} </p>
-        {/*<a href="#" onClick={updateCurrentPlay} >
-          {" "}
-          {props.play.title}{" "}
-          </a> */}
+
       </Link>
 
       <button type="button" id="deleteButton" onClick={remove}>

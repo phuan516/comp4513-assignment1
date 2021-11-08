@@ -29,7 +29,6 @@ const TextTab = (props) => {
       </div>
     );
   } else {
-    /* *****PART SHOWS THE NORMAL TEXT INFORMATION IF USER DID NOT TYPE TO HIGHLIGHT A WORD******   */
     
     return (
       <div className="TextTab">

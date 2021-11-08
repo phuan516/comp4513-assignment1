@@ -49,8 +49,6 @@ main {
     padding-bottom: 1.29rem;
     align-items: center;
     justify-content: space-between;
-    /* border: 1px solid #39A2DB;
-    border-radius: 2rem; */
     @media (max-width: 768px) {
       width: 90%;
     }
@@ -125,11 +123,6 @@ main {
   text-align: center;
   grid-column: 2;
   font-size: 4vh;
-  /*
-  text-align: center;
-  margin-bottom: 30px;
-  padding-left: 15px;
-  padding-bottom: 15px; */
 }
 
  hr {
@@ -177,27 +170,22 @@ main {
   padding-bottom: 15px;
 }
 
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
 
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
 ::-webkit-scrollbar-thumb {
   background: #888; 
 }
 
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
 
-/* https://www.w3schools.com/howto/howto_css_full_page.asp */
 .homePage{
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1553782749-5ab8693a5f4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1078&q=80");
@@ -213,10 +201,6 @@ main {
   background: rgba(83, 98, 139, 0.993); 
   border-radius: 1rem;
   position: absolute;
-  /*
-  top:40%;
-  left: 39%;
-  right: 39%; */
   margin-top: 20%;
   margin-left: 37.5%;
   margin-right: 37.5%;
@@ -402,6 +386,7 @@ a:visited {
 #playDetailsButtons button:hover ,#textPlayDetailsButtons button:hover {
   background: rgba(50, 224, 196, 0.15);
   transition: all 0.7s;
+  font-size: 2.8vh;
 }
 
 
@@ -426,11 +411,9 @@ a:visited {
 
 #deleteButton:hover {
   font-size: 1.8vh;
+  padding:0.3rem;
   transition: all 1s;
 }
-
-/* Default page transition group CSS */
-
 
 
 
@@ -628,7 +611,8 @@ button {
 #listBoxItems:hover {
   font-size: 2.1vh;
   background-color: #c9c9c9;
-  transition: all 1s;
+  transition: all 0.8s;
+  border-radius: 10px;
 
 }
 
@@ -650,10 +634,21 @@ button {
   color:red;
 }
 
+#playListButtons #likeButton:hover {
+}
+
+#playListButtons #likeButton:focus {
+  padding: 0.4rem;
+  font-size: 2vh;
+  transition: all 0.7s;
+
+}
+
 #playListButtons button:hover {
   background: rgba(50, 224, 195, 0.445);
   transition: all 0.7s;
   color: rgb(211, 211, 211);
+  font-size: 2.5vh;
 }
 
 #filterContentBox {
@@ -665,12 +660,22 @@ button {
   font-size: 2.5vh;
 }
 
-#searchTitleBox input{
-  padding: 0.8vh;
-}
-
 #searchTitleInput {
   margin-top: 1vh;
+  padding: 0.8vh;
+  width: 12vh;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+#searchTitleInput:hover {
+  transition: all 1s;
+  width: 28vh;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #39A2DB;
 }
 
 #searchYearBox {
@@ -686,8 +691,6 @@ button {
 #beforeCheckBox {
   display: inline-block;
 }
-
-/* https://stackoverflow.com/questions/4137255/checkboxes-in-web-pages-how-to-make-them-bigger */
 
 #beforeCheckBox input[type='checkbox'], #afterCheckBox input[type='checkbox']{
   -webkit-appearance:none;
@@ -749,6 +752,10 @@ button {
   
 }
 
+#genre:hover {
+  border-radius: 3px;
+}
+
 #genre option {
   font-weight: 600;
 }
@@ -796,10 +803,11 @@ button {
   
 }
 
-#favoriteItem:hover {
+#favoriteItem p:hover {
   font-size: 2.1vh;
   background-color: #c9c9c9;
   transition: all 0.7s;
+  border-radius: 10px;
 }
 
 button.link {
@@ -843,4 +851,37 @@ button.link {
   border-color: lightseagreen;
   border-radius: 10px;
   transition: opacity 2s;
+}
+
+#modal {
+  background-color: #053742;
+}
+
+#modalBackground {
+  background-color: #053742;
+  color: white;
+  border-radius: 10px;
+  padding: 2vh;
+  margin-top: 2vh;
+}
+
+#modalBackground a {
+  text-decoration: none;
+  color:white;
+}
+
+#modalButton {
+  cursor: pointer;
+  background: #39A2DB;
+  color: white;
+  border-radius: 0.4rem;
+  font-size: 2vh;
+  width: 16.75vh;
+  height: 5vh;
+}
+
+#modalButton:hover {
+  font-size: 2.5vh;
+  background-color: rgba(50, 224, 195, 0.918);
+  transition: all 0.7s;
 }

@@ -14,7 +14,6 @@ const FavoriteItem = (props) => {
     fetch (url)
     .then (response => response.json())
     .then(data => { localStorage.setItem("playInfo", JSON.stringify(data))} )
-    //.then (error => {console.log(error)});
   }
 
   
@@ -22,7 +21,7 @@ const FavoriteItem = (props) => {
   return (
     <div id="favoriteItem">
       <Link to="/playDetails">
-      <p onClick={updateCurrentPlay}> {" "}
+        <p onClick={updateCurrentPlay}> {" "}
           {props.play.title}{" "} </p>
       </Link>
       

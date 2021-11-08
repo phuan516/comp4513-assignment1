@@ -114,7 +114,7 @@ useEffect (() => {
           <div id="searchTitleBox">
             <label htmlFor="title">Title</label>
             <br/>
-            <input type="text" name="title" id="searchTitleInput" onChange = {handleFieldClick}></input>
+            <input type="text" name="title" id="searchTitleInput" placeholder="Search Title" onChange = {handleFieldClick}></input>
           </div>
           <div id="searchYearBox">
             <label htmlFor="year" id="yearTitle"> Year </label> <br />

@@ -50,25 +50,10 @@ const PlayDetailPage = (props) => {
     setHighlightedWord(e.target.value);
   };
 
-
-  /*
-  const check = () => {
-    if (currentSpeaker === "") {
-      console.log("Current speaker is empty string")
-    } else {
-      console.log("Current speaker isnt empty")
-    }
-  }
-
-  check();
-  
-*/
   useEffect((props) => {
     const getInfo = async () => {
       try {
-        const url =
-          "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" +
-          props.current.id;
+        const url = "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" + props.current.id;
         const response = await fetch(url);
         const data = await response.json();
         localStorage.setItem("playInfo", JSON.stringify(data));

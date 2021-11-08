@@ -59,7 +59,7 @@ function App() {
     
   };
 
-  /* https://stackoverflow.com/questions/24502898/show-or-hide-element-in-react */
+
   const updateIsChecked = () => {
     setIsChecked(!isChecked);
   }

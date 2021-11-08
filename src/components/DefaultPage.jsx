@@ -29,6 +29,7 @@ const DefaultPage = (props) => {
 
     if (Object.keys(filter).length === 0) {
       updatedFilteredData = [...props.mainData];
+
     } else {
       //Must convert to lower case to obtain all possible matches for title, before initiating filter.
       if (filter.title) {
