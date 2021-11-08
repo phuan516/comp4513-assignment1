@@ -22,7 +22,7 @@ function App() {
         const data = await response.json();
 
         localStorage.setItem("playData", JSON.stringify(data));
-        setData(JSON.parse(localStorage.getItem("playData")));
+        setData(data);
       } catch (err) {
         console.error(err);
       }
