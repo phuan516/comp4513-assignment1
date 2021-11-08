@@ -6,7 +6,6 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
-  const [playInfo, setPlayInfo] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [like, setLike] = useState([]);
   const [currentPlay, setCurrentPlay] = useState([]);
