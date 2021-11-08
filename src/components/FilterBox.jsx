@@ -99,7 +99,7 @@ useEffect (() => {
     return (
     <div id="filterBox">
       <div id="filtersAndCheck">
-        <div id="checkBoxDiv"> <input type="checkbox" class="checkboxFave" /> </div>
+        <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" /> </div>
         <h1 id="filterTitle">Play Filters</h1>
       </div>
       <hr/>

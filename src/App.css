@@ -387,6 +387,9 @@ a:visited {
   border-radius: 0.5rem;
 }
 
+#textPlayDetailsButtons #likeButton {
+  color: red;
+}
 #playDetailsButtons #likeButton{
   color: red;
 }
