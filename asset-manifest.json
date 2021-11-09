@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/comp4513-assignment1/static/css/main.87e4b19c.chunk.css",
-    "main.js": "/comp4513-assignment1/static/js/main.ee73781a.chunk.js",
-    "main.js.map": "/comp4513-assignment1/static/js/main.ee73781a.chunk.js.map",
-    "runtime-main.js": "/comp4513-assignment1/static/js/runtime-main.7e0264cf.js",
-    "runtime-main.js.map": "/comp4513-assignment1/static/js/runtime-main.7e0264cf.js.map",
-    "static/js/2.916926e4.chunk.js": "/comp4513-assignment1/static/js/2.916926e4.chunk.js",
-    "static/js/2.916926e4.chunk.js.map": "/comp4513-assignment1/static/js/2.916926e4.chunk.js.map",
-    "static/js/3.6c856173.chunk.js": "/comp4513-assignment1/static/js/3.6c856173.chunk.js",
-    "static/js/3.6c856173.chunk.js.map": "/comp4513-assignment1/static/js/3.6c856173.chunk.js.map",
+    "main.css": "/comp4513-assignment1/static/css/main.5229adbd.chunk.css",
+    "main.js": "/comp4513-assignment1/static/js/main.bb96fde8.chunk.js",
+    "main.js.map": "/comp4513-assignment1/static/js/main.bb96fde8.chunk.js.map",
+    "runtime-main.js": "/comp4513-assignment1/static/js/runtime-main.161098ed.js",
+    "runtime-main.js.map": "/comp4513-assignment1/static/js/runtime-main.161098ed.js.map",
+    "static/js/2.906afceb.chunk.js": "/comp4513-assignment1/static/js/2.906afceb.chunk.js",
+    "static/js/2.906afceb.chunk.js.map": "/comp4513-assignment1/static/js/2.906afceb.chunk.js.map",
+    "static/js/3.65933fdf.chunk.js": "/comp4513-assignment1/static/js/3.65933fdf.chunk.js",
+    "static/js/3.65933fdf.chunk.js.map": "/comp4513-assignment1/static/js/3.65933fdf.chunk.js.map",
     "index.html": "/comp4513-assignment1/index.html",
-    "static/css/main.87e4b19c.chunk.css.map": "/comp4513-assignment1/static/css/main.87e4b19c.chunk.css.map",
-    "static/js/2.916926e4.chunk.js.LICENSE.txt": "/comp4513-assignment1/static/js/2.916926e4.chunk.js.LICENSE.txt"
+    "static/css/main.5229adbd.chunk.css.map": "/comp4513-assignment1/static/css/main.5229adbd.chunk.css.map",
+    "static/js/2.906afceb.chunk.js.LICENSE.txt": "/comp4513-assignment1/static/js/2.906afceb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7e0264cf.js",
-    "static/js/2.916926e4.chunk.js",
-    "static/css/main.87e4b19c.chunk.css",
-    "static/js/main.ee73781a.chunk.js"
+    "static/js/runtime-main.161098ed.js",
+    "static/js/2.906afceb.chunk.js",
+    "static/css/main.5229adbd.chunk.css",
+    "static/js/main.bb96fde8.chunk.js"
   ]
 }
