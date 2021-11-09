@@ -12,14 +12,13 @@ const PlayDetailPage = (props) => {
   const [currentSpeaker, setCurrentSpeaker] = useState("");
   const [highlightedWord, setHighlightedWord] = useState("");
 
-
   const tabIsText = (tab) => {
     setTab(tab);
   };
 
   const updateTabThroughClick = () => {
     setTab("Details");
-  }
+  };
 
   const handleCurrentAct = (e) => {
     console.log(e.target.value);
@@ -53,52 +52,62 @@ const PlayDetailPage = (props) => {
   useEffect((props) => {
     const getInfo = async () => {
       try {
-        const url = "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" + props.current.id;
+        const url =
+          "https://www.randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=" +
+          props.current.id;
         const response = await fetch(url);
         const data = await response.json();
         localStorage.setItem("playInfo", JSON.stringify(data));
-
       } catch (err) {
         console.error(err);
       }
     };
     // invoke the async function
     getInfo();
-    
   }, []);
 
   const updateBoxForFave = () => {
     props.updateFaveBox();
     props.updateIsChecked();
-  }
+  };
 
   if (tab === "Text") {
     let i = [];
-    i = JSON.parse(localStorage.getItem("playInfo"));
+    i.push(JSON.parse(localStorage.getItem("playInfo")));
 
     return (
       <div className="playDetailsPage">
-          <HeaderBar></HeaderBar>
+        <HeaderBar></HeaderBar>
 
         <div id="playDetailsBox">
-        {props.showFavorites && props.isChecked === false ? <div id="detailsFavoriteList">
-            <FavoriteBoxDetails
-              plays={props.likedPlays}
-              removeFromLike={props.removeFromLike}
-              updateCurrent={props.updateCurrent}
-              updateTab={updateTabThroughClick}
-            />
-          </div> : <div id="hiddenFaveBox"> </div>}
+          {props.showFavorites && props.isChecked === false ? (
+            <div id="detailsFavoriteList">
+              <FavoriteBoxDetails
+                plays={props.likedPlays}
+                removeFromLike={props.removeFromLike}
+                updateCurrent={props.updateCurrent}
+                updateTab={updateTabThroughClick}
+              />
+            </div>
+          ) : (
+            <div id="hiddenFaveBox"> </div>
+          )}
 
           <div id="playTitleBox">
-            <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" onChange={updateBoxForFave}/> </div>
+            <div id="checkAndTitle">
+              <div id="checkBoxDiv">
+                {" "}
+                <input
+                  type="checkbox"
+                  className="checkboxFave"
+                  onChange={updateBoxForFave}
+                />{" "}
+              </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
-            
 
             <hr></hr>
-          
+
             <div id="formBox">
               <form id="textFilterBox">
                 {/* This handles the act filter and adds current act*/}
@@ -157,16 +166,22 @@ const PlayDetailPage = (props) => {
                   onChange={handleHighlightedWord}
                 />
               </form>
-              </div>
-              <div id="textPlayDetailsButtons">
-                <Link to={{pathname: "/default", state: {filters: props.filters}}} >
-                  <button type="button" id="closeButton"> Close </button>
-                </Link>
-                <button onClick={addToLike} id="likeButton"> ❤ </button>
-              </div>
-            
             </div>
-         
+            <div id="textPlayDetailsButtons">
+              <Link
+                to={{ pathname: "/default", state: { filters: props.filters } }}
+              >
+                <button type="button" id="closeButton">
+                  {" "}
+                  Close{" "}
+                </button>
+              </Link>
+              <button onClick={addToLike} id="likeButton">
+                {" "}
+                ❤{" "}
+              </button>
+            </div>
+          </div>
 
           <div id="tabsBox">
             <Tabs
@@ -179,29 +194,38 @@ const PlayDetailPage = (props) => {
               highlightedWord={highlightedWord}
             />
           </div>
-          </div>
-          
         </div>
+      </div>
     );
   } else {
     return (
       <div className="playDetailsPage">
-          <HeaderBar></HeaderBar>
+        <HeaderBar></HeaderBar>
 
         <div id="playDetailsBox">
-        {props.showFavorites && props.isChecked === false ? <div id="detailsFavoriteList">
-            <FavoriteBoxDetails
-              plays={props.likedPlays}
-              removeFromLike={props.removeFromLike}
-              updateCurrent={props.updateCurrent}
-              updateTab={updateTabThroughClick}
-            />
-          </div> : <div id="hiddenFaveBox"> </div>}
-          
+          {props.showFavorites && props.isChecked === false ? (
+            <div id="detailsFavoriteList">
+              <FavoriteBoxDetails
+                plays={props.likedPlays}
+                removeFromLike={props.removeFromLike}
+                updateCurrent={props.updateCurrent}
+                updateTab={updateTabThroughClick}
+              />
+            </div>
+          ) : (
+            <div id="hiddenFaveBox"> </div>
+          )}
 
           <div id="playTitleBox">
-            <div id="checkAndTitle"> 
-              <div id="checkBoxDiv"> <input type="checkbox" className="checkboxFave" onChange={updateBoxForFave}/> </div>
+            <div id="checkAndTitle">
+              <div id="checkBoxDiv">
+                {" "}
+                <input
+                  type="checkbox"
+                  className="checkboxFave"
+                  onChange={updateBoxForFave}
+                />{" "}
+              </div>
               <h1 id="playTitle">{props.current.title}</h1>
             </div>
             <hr></hr>
@@ -209,10 +233,21 @@ const PlayDetailPage = (props) => {
               <div id="synopsisBox">{props.current.synopsis}</div>
 
               <div id="playDetailsButtons">
-                <Link to={{pathname: "/default", state: {filters: props.filters}}} >
-                  <button type="button" id="closeButton"> Close </button>
+                <Link
+                  to={{
+                    pathname: "/default",
+                    state: { filters: props.filters },
+                  }}
+                >
+                  <button type="button" id="closeButton">
+                    {" "}
+                    Close{" "}
+                  </button>
                 </Link>
-                <button onClick={addToLike} id="likeButton"> ❤ </button>
+                <button onClick={addToLike} id="likeButton">
+                  {" "}
+                  ❤{" "}
+                </button>
               </div>
             </div>
           </div>
