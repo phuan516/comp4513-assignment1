@@ -113,7 +113,7 @@ const PlayDetailPage = (props) => {
                 {/* This handles the act filter and adds current act*/}
 
                 <select name="act" id="act" onChange={handleCurrentAct}>
-                  {i.acts.map((a) => {
+                  {i[0].acts.map((a) => {
                     return (
                       <option value={a.name} key={a.name}>
                         {" "}
@@ -125,7 +125,7 @@ const PlayDetailPage = (props) => {
 
                 {/* This handles the scene filter corresponding to the act*/}
                 <select name="scene" id="scene" onChange={handleCurrentScene}>
-                  {i.acts.map((act) => {
+                  {i[0].acts.map((act) => {
                     if (act.name === currentAct) {
                       return act.scenes.map((s) => {
                         return (
@@ -148,7 +148,7 @@ const PlayDetailPage = (props) => {
                   onChange={handleCurrentSpeaker}
                 >
                   <option value=""> Choose Player Here </option>
-                  {i.persona.map((p) => {
+                  {i[0].persona.map((p) => {
                     return (
                       <option value={p.player} key={p.player}>
                         {" "}
