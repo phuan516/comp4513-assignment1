@@ -9,6 +9,8 @@ import { CSSTransition } from "react-transition-group";
 
 const DefaultPage = (props) => {
   const location = useLocation();
+  //check if matches are found from filter.
+  const [matchesFound, setMatchesFound] = useState(true);
 
   useEffect(() => {
     if (location.state.filters) {
@@ -21,8 +23,6 @@ const DefaultPage = (props) => {
     title = location.state.title;
   }
 
-  //check if matches are found from filter.
-  const [matchesFound, setMatchesFound] = useState(true);
   const updateFilteredData = (filter) => {
     let updatedFilteredData = [];
 
