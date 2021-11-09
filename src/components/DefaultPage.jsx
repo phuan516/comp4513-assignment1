@@ -5,8 +5,7 @@ import FilterBox from "./FilterBox";
 import ListBox from "./ListBox";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { CSSTransition } from 'react-transition-group';
-
+import { CSSTransition } from "react-transition-group";
 
 const DefaultPage = (props) => {
   const location = useLocation();
@@ -29,7 +28,6 @@ const DefaultPage = (props) => {
 
     if (Object.keys(filter).length === 0) {
       updatedFilteredData = [...props.mainData];
-
     } else {
       //Must convert to lower case to obtain all possible matches for title, before initiating filter.
       if (filter.title) {
@@ -219,20 +217,23 @@ const DefaultPage = (props) => {
     <div className="defaultPage">
       <HeaderBar />
       <div id="defaultPageInfoBox">
-        
-          
-          {props.showFavorites && props.isChecked === false ? <div id="defaultFavoriteBox"> <FavoriteBox
-            plays={props.likedPlays}
-            removeFromLike={props.removeFromLike}
-            updateCurrent={props.updateCurrent}
-          /> </div> : <div id="hiddenFaveBox"> </div>}
-          
-        
+        {props.showFavorites && props.isChecked === false ? (
+          <div id="defaultFavoriteBox">
+            {" "}
+            <FavoriteBox
+              plays={props.likedPlays}
+              removeFromLike={props.removeFromLike}
+              updateCurrent={props.updateCurrent}
+            />{" "}
+          </div>
+        ) : (
+          <div id="hiddenFaveBox"> </div>
+        )}
+
         <FilterBox
           updateFilteredData={updateFilteredData}
           title={title}
           matchesFound={matchesFound}
-
           updateIsChecked={props.updateIsChecked}
           updateFaveBox={props.updateFaveBox}
         />
